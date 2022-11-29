@@ -4,7 +4,7 @@
 
 <template>
   <div class="app">
-    Dit is de frontend
+    Dit is de vuejs frontend
   </div>
 </template>
 
