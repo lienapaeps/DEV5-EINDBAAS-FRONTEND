@@ -4,13 +4,34 @@ import Form from '../components/Form.vue'
 
 <template>
     <div class="app">
-        Dit is de vuejs login
+        <h1>Admin log in</h1>
+        <Form />
     </div>
-    <Form />
 </template>
 
 <style scoped>
+h1 {
+    margin-top: 2em;
+}
+
 .app {
-    background-color: red;
+    margin: 2em;
+    margin-top: 6em;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .app {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 10em;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .app {
+        margin-top: 8em;
+    }
 }
 </style>

@@ -1,24 +1,21 @@
 <script setup>// logica
-
+import Button from '../components/Button.vue'
 </script>
 
 <template>
-    <div class="container form">
-        <h1>Admin log in</h1>
-        <form action="#">
-            <div class="row">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div class="row">
-                <label for="password">Wachtwoord</label>
-                <input type="text" id="password" name="password">
-            </div>
-            <div class="row">
-                <input type="submit" value="Log in">
-            </div>
-        </form>
-    </div>
+    <form action="#">
+        <div class="row">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="row">
+            <label for="password">Wachtwoord</label>
+            <input type="text" id="password" name="password">
+        </div>
+        <div class="row">
+            <Button text="Log in" class="btn btn--strawberry" textclass="btn__text" />
+        </div>
+    </form>
 </template>
 
 <style scoped>
@@ -36,18 +33,14 @@ label {
     display: inline-block;
 }
 
-input[type=submit] {
-    background-color: var(--strawberry-pink);
-    color: white;
-    padding: 1em 1.5em;
-    border: none;
-    border-radius: 4px;
+.btn {
     cursor: pointer;
-    width: 100%;
-    margin-top: 1.5em;
+    display: inline-block;
+    font-size: 1em;
 }
 
-.container {
-    padding: 1.5em;
+.row .btn {
+    margin-top: 1.5em;
+    margin-left: 0;
 }
 </style>
