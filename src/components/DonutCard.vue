@@ -1,5 +1,5 @@
 <script setup>
-
+import ShoppingButton from '../components/ShoppingButton.vue'
 </script>
 
 <template>
@@ -12,7 +12,7 @@
             <h2>Donut naam</h2>
         </div>
         <div class="card__btn">
-            <a href="#"></a>
+            <ShoppingButton />
         </div>
     </div>
 </template>

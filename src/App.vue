@@ -16,6 +16,8 @@ import Gallery from './views/Gallery.vue'
   <!-- <Button text="Maak Donut" class="btn btn--yellow" textclass="btn__text"/>
     <Button text="Maak Donut" class="btn btn--strawberry" textclass="btn__text"/>
     <Shoppingbutton/> -->
+  <!-- <Gallery /> -->
+
 </template>
 
 <style scoped>
