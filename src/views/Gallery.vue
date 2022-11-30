@@ -1,15 +1,39 @@
 <script setup>// logica
-
+import DonutCard from '../components/DonutCard.vue';
 </script>
 
 <template>
+    <h1>De <span class="title__color">Gallerij</span></h1>
     <div class="app">
-        Dit is de vuejs gallery
+        <DonutCard />
+        <DonutCard />
+        <DonutCard />
+        <DonutCard />
     </div>
 </template>
 
 <style scoped>
-.app {
-    background-color: red;
+h1 {
+    margin: 2em 1em 1.5em 1em;
 }
+
+.title__color {
+    color: var(--strawberry-pink);
+}
+
+.app {
+    margin: 2em;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .app {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {}
 </style>
