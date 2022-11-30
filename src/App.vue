@@ -18,4 +18,9 @@ import Home from './views/Home.vue'
   background-color: var(--strawberry-pink);
 
 }
+
+.container{
+  margin-left: 2em;
+  margin-right: 2em;
+}
 </style>

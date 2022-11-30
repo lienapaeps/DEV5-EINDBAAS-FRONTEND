@@ -20,6 +20,11 @@ body {
     padding: 0;
 }
 
+.container{
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+
 /* google fonts */
 
 h1, h2, h3, p, a {
