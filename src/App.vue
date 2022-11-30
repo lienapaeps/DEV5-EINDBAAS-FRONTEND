@@ -1,5 +1,6 @@
 <script setup>// logica
 import Nav from './components/Nav.vue'
+import Home from './views/Home.vue'
 
 </script>
 
@@ -7,6 +8,8 @@ import Nav from './components/Nav.vue'
   <div class="app">
     <Nav />
   </div>
+
+  <Home />
 </template>
 
 <style scoped>
