@@ -1,18 +1,21 @@
 <script setup>// logica
+import Nav from './components/Nav.vue'
 import Home from './views/Home.vue'
 
 </script>
 
 <template>
   <div class="app">
-    Dit is de vuejs frontend
+    <Nav />
   </div>
 
   <Home />
 </template>
 
 <style scoped>
+
 .app {
-  background-color: red;
+  background-color: var(--strawberry-pink);
+
 }
 </style>
