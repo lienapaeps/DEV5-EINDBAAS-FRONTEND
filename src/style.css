@@ -10,6 +10,6 @@ h1, h2, h3, p, a {
     font-family: 'Dosis', sans-serif;
 }
 
-p {
+p, label, input[type=submit] {
     font-family: 'Lato', sans-serif;
 }
