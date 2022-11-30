@@ -1,10 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+:root {
+    --strawberry-pink: #E72C70;
+    --lemon-yellow: #F7F249;
+    --heaven-blue: #82D1E4;
+
+    --pink: #FF4C8E;
+    --vivid-blue: #60D1D6;
+    --warm-lemon: #F7E200;
+
+    --pastel-pink: #FF98BE;
+    --pastel-blue: #CAE3E8;
+    --pastel-yellow: #FFFF99;
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
 /* google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
 
 h1, h2, h3, p, a {
     font-family: 'Dosis', sans-serif;
@@ -13,3 +27,4 @@ h1, h2, h3, p, a {
 p {
     font-family: 'Lato', sans-serif;
 }
+
