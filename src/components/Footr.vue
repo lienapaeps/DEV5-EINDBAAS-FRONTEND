@@ -10,7 +10,11 @@ import { ref } from 'vue'
 </template>
 
 <style scoped>
+
     footer{
         text-align: center;
     }
+    
+
+    
 </style>
