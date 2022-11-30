@@ -34,8 +34,23 @@ h1, h2, h3, p, a {
     font-family: 'Dosis', sans-serif;
 }
 
-p {
+p, label, input[type=submit] {
     font-family: 'Lato', sans-serif;
     font-size: 1.15rem ;
 }
 
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
