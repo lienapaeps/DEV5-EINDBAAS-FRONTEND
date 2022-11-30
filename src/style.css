@@ -20,17 +20,10 @@ body {
     padding: 0;
 }
 
-#app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-}
 .container{
     margin-left: 2em;
     margin-right: 2em;
-  }
+}
 
 /* google fonts */
 

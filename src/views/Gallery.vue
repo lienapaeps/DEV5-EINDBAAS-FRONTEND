@@ -35,5 +35,13 @@ h1 {
 }
 
 /* Desktop */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    h1 {
+        margin-left: 1.5em;
+    }
+
+    .app {
+        margin: 3em;
+    }
+}
 </style>

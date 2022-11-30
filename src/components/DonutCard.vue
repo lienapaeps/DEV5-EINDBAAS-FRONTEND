@@ -11,7 +11,7 @@ import ShoppingButton from '../components/ShoppingButton.vue'
             <span class="card__highlight">Donut</span>
             <h2>Donut naam</h2>
         </div>
-        <div class="card__btn">
+        <div class="card__button">
             <ShoppingButton />
         </div>
     </div>
@@ -20,10 +20,9 @@ import ShoppingButton from '../components/ShoppingButton.vue'
 <style scoped>
 .card {
     box-shadow: 4px 4px 9px 4px rgba(17, 17, 17, 0.2);
-    transition: 0.3s;
     margin-bottom: 2.5em;
-    text-align: center;
     border-radius: 1em;
+    position: relative;
 }
 
 .card__image {
@@ -31,19 +30,15 @@ import ShoppingButton from '../components/ShoppingButton.vue'
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
     padding: 1.6em 0;
+    text-align: center;
 }
 
 .card img {
     width: 200px;
 }
 
-.card__text {
-    padding: .2em 1em;
-    text-align: left;
-}
-
-.card__text h2 {
-    margin-top: .5em;
+.card__button {
+    text-align: right;
 }
 
 .card__highlight {
@@ -52,12 +47,25 @@ import ShoppingButton from '../components/ShoppingButton.vue'
     margin-top: 1em;
 }
 
+.card__text {
+    padding: 1em;
+}
+
+.card__text h2 {
+    margin: 0;
+    margin-top: .5em;
+    padding-bottom: 3em;
+}
+
+.card__button {
+    position: absolute;
+    bottom: 2em;
+    right: 0;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
     .card__image {
-        background-color: var(--lemon-yellow);
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
         padding: 1em 5em;
     }
 }
