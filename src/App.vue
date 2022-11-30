@@ -1,15 +1,19 @@
 <script setup>
-import LogIn from './views/LogIn.vue';
+import { ref, computed } from 'vue'
+
 import Nav from './components/Nav.vue'
-import Button from './components/Button.vue'
-import Shoppingbutton from './components/Shoppingbutton.vue'
-import Home from './views/Home.vue'
-import Gallery from './views/Gallery.vue'
+// import LogIn from './views/LogIn.vue';
+// import Button from './components/Button.vue'
+// import Shoppingbutton from './components/Shoppingbutton.vue'
+// import Home from './views/Home.vue'
+// import Gallery from './views/Gallery.vue'
+// import Configurator from './views/Configurator.vue'
 
 </script>
 
 <template>
   <Nav />
+
   <!-- <Button /> -->
   <!-- <LogIn /> -->
   <!-- <Home /> -->
