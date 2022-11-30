@@ -37,7 +37,7 @@ label {
 }
 
 input[type=submit] {
-    background-color: red;
+    background-color: var(--strawberry-pink);
     color: white;
     padding: 1em 1.5em;
     border: none;
