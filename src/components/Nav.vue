@@ -4,7 +4,7 @@
 
 <template>
     <nav>
-        <img class="nav__logo" src="../../imgs/donuttello-logo.png" alt="">
+        <img class="nav__logo" src="../../imgs/donuttello-logo.png" alt="Logo">
     </nav>
 </template>
 

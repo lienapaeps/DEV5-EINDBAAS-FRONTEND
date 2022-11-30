@@ -9,6 +9,9 @@
     <a class="btn btn--yellow" href="#">
         <span class="btn__text btn__yellow--text">Maak Donut</span>
     </a>
+    <a class="btn btn--shopping" href="#">
+        <img class="btn__shoppingcart" src="../../imgs/shoppingcart.png" alt="Shopping cart">
+    </a>
 </template>
 
 <style scoped>
@@ -25,6 +28,12 @@
         background-color: var(--warm-lemon);
     }
 
+    .btn--shopping {
+        background-color: var(--strawberry-pink);
+        padding: 1rem 2.1rem;
+        border-radius: 2rem;
+    }
+
     .btn__text {
         color: var(--warm-lemon);
         font-size: 1.15rem;
@@ -34,5 +43,9 @@
 
     .btn__yellow--text {
         color: var(--strawberry-pink);
+    }
+
+    .btn__shoppingcart {
+        height: 1rem;
     }
 </style>
