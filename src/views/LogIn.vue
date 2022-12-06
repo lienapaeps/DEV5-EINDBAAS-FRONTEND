@@ -1,11 +1,14 @@
 <script setup>// logica
-import Form from '../components/Form.vue'
+import LogInForm from '../components/LogInForm.vue'
+
+
+
 </script>
 
 <template>
     <div class="app">
         <h1>Admin log in</h1>
-        <Form />
+        <LogInForm />
     </div>
 </template>
 
@@ -24,14 +27,14 @@ h1 {
     .app {
         width: 60%;
         margin: 0 auto;
-        margin-top: 10em;
+        margin-top: 8em;
     }
 }
 
 /* Desktop */
 @media (min-width: 992px) {
     .app {
-        margin-top: 8em;
+        margin-top: 6em;
     }
 }
 </style>

@@ -41,6 +41,17 @@ p {
     line-height: 150%;
 }
 
+.alert {
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    font-family: 'Dosis', sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
     body {
