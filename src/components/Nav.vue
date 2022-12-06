@@ -31,12 +31,14 @@ const currentView = computed(() => {
         <div class="nav__logo">
             <img src="../../imgs/donuttello-logo.png" alt="Logo">
         </div>
-        <div class="nav__menu">
-            <a href="#/">Home</a>
-            <a href="#/configurator">Configurator</a>
-            <a href="#/gallery">Gallerij</a>
-            <a href="#/login">Log in</a>
-        </div>
+        <label for="toggle">&#8801</label>
+        <input type="checkbox" id="toggle" />
+        <ul class="nav__menu">
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/configurator">Configurator</a></li>
+            <li><a href="#/gallery">Gallerij</a></li>
+            <!-- <a href="#/login">Log in</a> -->
+        </ul>
         <component :is="currentView" />
     </nav>
 </template>
@@ -45,19 +47,56 @@ const currentView = computed(() => {
 nav {
     background-color: var(--strawberry-pink);
     height: 5.5rem;
-    width: 100vw;
+    width: 100%;
+    position: relative;
 }
 
-.nav__logo {
-    max-width: 100%;
-    width: 40%;
+.nav__logo img {
+    width: 35%;
+    margin-top: .5em;
+    margin-left: 1em;
+}
+
+.nav__menu li {
+    width: 100%;
+    list-style: none;
+    padding: 1em 0;
+}
+
+.nav__menu a {
+    text-decoration: none;
+}
+
+label {
+    display: block;
+    position: absolute;
+    top: 1.1em;
+    right: 1em;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+#toggle {
+    position: absolute;
+    top: 3em;
+    right: 0;
+    display: none;
 }
 
 .nav__menu {
-    display: flex;
-    justify-content: space-around;
-    padding: 1em;
-    background-color: red;
+    text-align: center;
+    width: 100%;
+    background-color: var(--strawberry-pink);
+    padding: 2em 0;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    display: none;
+}
+
+#toggle:checked~.nav__menu {
+    display: block;
 }
 
 .nav__menu a {
@@ -70,29 +109,41 @@ nav {
 
 /* Tablet */
 @media (min-width: 768px) {
-    .nav__logo {
-        max-width: 100%;
-        margin-left: 2em;
+    .nav__logo img {
+        width: 20%;
+    }
+
+    label {
+        display: none;
     }
 
     .nav__menu {
-        background-color: var(--strawberry-pink);
-        position: absolute;
-        top: 1em;
-        right: 0;
+        display: flex;
+        top: 1rem;
+        padding: 0;
         width: 60%;
+        margin: 0;
+        margin-left: 40%;
     }
 }
 
 /* Desktop */
 @media (min-width: 992px) {
     .nav__logo {
-        max-width: 100%;
-        margin-left: 2em;
+        width: 60%;
+    }
+
+    .nav__menu {
+        margin-left: 60%;
+        width: 40%;
     }
 
     .nav__menu a {
         font-size: 1.2em;
+    }
+
+    .nav__menu a:hover {
+        color: var(--lemon-yellow);
     }
 }
 </style>
