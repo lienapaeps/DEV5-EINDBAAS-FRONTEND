@@ -14,7 +14,7 @@ import DonutCard from '../components/DonutCard.vue';
 
 <style scoped>
 h1 {
-    margin: 2em 1em 1.5em 1em;
+    margin: 2em 1em 1.5em 1.5em;
 }
 
 .title__color {
@@ -23,6 +23,8 @@ h1 {
 
 .app {
     margin: 2em;
+    position: relative;
+    z-index: -1;
 }
 
 /* Tablet */
@@ -38,6 +40,7 @@ h1 {
 @media (min-width: 992px) {
     h1 {
         margin-left: 1.5em;
+        font-size: 2em;
     }
 
     .app {
