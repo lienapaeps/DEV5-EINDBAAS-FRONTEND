@@ -31,6 +31,7 @@ function check(input) {
         <div class="card__text">
             <span class="card__highlight">Donut</span>
             <h2>Donut naam</h2>
+            <h3 class="card__text__company">Bedrijf</h3>
         </div>
         <div class="card__delete">
             <a href="#">
@@ -84,6 +85,12 @@ function check(input) {
 .card__text h2 {
     margin: 0;
     margin-top: .5em;
+}
+
+.card__text__company {
+    font-weight: 600;
+    opacity: .5;
+    margin-bottom: 0.5;
 }
 
 .card__delete {
