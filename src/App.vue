@@ -2,12 +2,7 @@
 import { ref, computed } from 'vue'
 
 import Nav from './components/Nav.vue'
-import Button from './components/Button.vue'
 import Home from './views/Home.vue'
-import Gallery from './views/Gallery.vue'
-import LogIn from './views/LogIn.vue';
-import Shoppingbutton from './components/Shoppingbutton.vue'
-import Configurator from './views/Configurator.vue'
 
 </script>
 
@@ -16,7 +11,7 @@ import Configurator from './views/Configurator.vue'
 
   <!-- <Button /> -->
   <!-- <LogIn /> -->
-  <Home />
+  <!-- <Home /> -->
   <!-- <Button text="" class="btn shoppingcart" textclass="btn__text"/> -->
     <!-- <Button text="Maak Donut" class="btn btn--strawberry" textclass="btn__text"/> -->
     <!-- <Shoppingbutton/> -->
