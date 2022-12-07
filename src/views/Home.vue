@@ -54,8 +54,8 @@ import Button from '../components/Button.vue'
 </template>
 
 <style scoped>
-
-h1, p{
+h1,
+p {
     color: white;
     margin: 0;
 }
@@ -88,7 +88,7 @@ h1{
     font-size: 3.1em;
 }
 
-.header--faq{
+.header--faq {
     color: var(--strawberry-pink);
 }
 

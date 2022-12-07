@@ -1,5 +1,29 @@
 <script setup>// logica
 import DonutCard from '../components/DonutCard.vue';
+
+import { ref, onMounted } from 'vue'
+
+// let donuts = ref([]);
+
+// enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
+function checkLogin() {
+    fetch("http://localhost:3000/api/v1/donuts", {
+        "headers": {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+    }).then(res => res.json())
+        .then(json => {
+            console.log(json);
+        }).catch(err => {
+            console.log("Only admin can access this page");
+            window.location.href = "#/home";
+        })
+}
+
+onMounted(() => {
+    checkLogin();
+});
+
 </script>
 
 <template>
@@ -14,7 +38,7 @@ import DonutCard from '../components/DonutCard.vue';
 
 <style scoped>
 h1 {
-    margin: 2em 1em 1.5em 1em;
+    margin: 2em 1em 1.5em 1.5em;
 }
 
 .title__color {
@@ -23,6 +47,8 @@ h1 {
 
 .app {
     margin: 2em;
+    position: relative;
+    z-index: -1;
 }
 
 /* Tablet */
@@ -35,5 +61,14 @@ h1 {
 }
 
 /* Desktop */
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    h1 {
+        margin-left: 1.5em;
+        font-size: 2em;
+    }
+
+    .app {
+        margin: 3em;
+    }
+}
 </style>
