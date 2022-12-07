@@ -39,8 +39,8 @@ const currentView = computed(() => {
             <li><a href="#/gallery">Gallerij</a></li>
             <!-- <a href="#/login">Log in</a> -->
         </ul>
-        <component :is="currentView" />
     </nav>
+    <component :is="currentView" />
 </template>
 
 <style scoped>
@@ -48,13 +48,13 @@ nav {
     background-color: var(--strawberry-pink);
     height: 5.5rem;
     width: 100%;
-    position: relative;
 }
 
 .nav__logo img {
     width: 35%;
-    margin-top: .5em;
-    margin-left: 1em;
+    top: .5em;
+    left: 1em;
+    /* position: absolute; */
 }
 
 .nav__menu li {
@@ -75,7 +75,7 @@ label {
     font-size: 2em;
     color: white;
     text-align: center;
-}
+} 
 
 #toggle {
     position: absolute;
@@ -93,7 +93,7 @@ label {
     top: 4rem;
     left: 0;
     display: none;
-}
+} 
 
 #toggle:checked~.nav__menu {
     display: block;
