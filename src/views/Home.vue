@@ -27,8 +27,12 @@ import Button from '../components/Button.vue'
             </p>
         </div>
         <div class="buttons">
-            <Button text="Maak Donuts" class="btn btn--yellow" textclass="btn__text"/>
-            <Button text="Bestel Donuts" class="btn btn--yellow" textclass="btn__text"/>
+            <a href="#/configurator">
+                <Button text="Maak Donuts" class="btn btn--yellow" textclass="btn__text"/>
+            </a>
+            <a href="https://donuttello.com/menu">
+                <Button text="Bestel Donuts" class="btn btn--yellow" textclass="btn__text"/>
+            </a>
         </div>
     </div>
     <section class="faq">
@@ -63,6 +67,10 @@ p {
 h1{
     padding-bottom: .5em;
     padding-top: 1em;
+}
+
+a {
+    text-decoration: none;
 }
 
 .textHomepage p{
@@ -102,7 +110,7 @@ h1{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-top: 1em;
+    padding-top: 2em;
 }
 
 .faq__text {
