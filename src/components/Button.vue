@@ -39,6 +39,8 @@
         background-color: var(--warm-lemon);
         color: var(--strawberry-pink);
         text-transform: uppercase;
+        min-width: 7rem;
+        text-align: center;
     }
 
     .shoppingcart {
