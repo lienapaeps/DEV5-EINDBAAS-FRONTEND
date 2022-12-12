@@ -1,6 +1,7 @@
 <script setup>
+    import Donut from '../components/Donut.vue'
+    import OrderForm from '../components/OrderForm.vue'
     import { onMounted } from 'vue';
-    import Donut from '../components/Donut.vue';
     import Customization from '../components/Customization.vue';
 
    onMounted( () => {
@@ -23,6 +24,9 @@
                 <Customization/>
             </div>
 
+        </div>
+        <div class="order">
+            <OrderForm/>
         </div>
     </body>
 </template>
