@@ -12,6 +12,17 @@
     
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight )
+    if (window.innerWidth < 768) {
+        renderer.setSize( window.innerWidth, window.innerHeight )
+    } else {
+        renderer.setSize( window.innerWidth / 2, window.innerHeight/2 )
+    }
+
+    function resize() {
+        window.location.reload();
+    }; 
+
+    window.addEventListener("resize", resize);
 
     onMounted (() => {
         document.querySelector(".donut").appendChild(renderer.domElement);
@@ -51,11 +62,18 @@
     let donut;
     gltfLoader.load('/DonutMix.glb', ( glb ) => {
         donut = glb.scene;
-        donut.scale.set(55, 55, 55);
-        donut.position.set(-.35, 4 , 0);
+        if (window.innerWidth < 768) {
+            donut.scale.set(55, 55, 55);
+            donut.position.set(-.35, 4 , 0);
+        } else {
+            donut.scale.set(80, 80, 80);
+            donut.position.set(-.5, 1 , 0);
+        }
         donut.rotateX(0.3);
         donut.rotateZ(-0.10);
         donut.children[0].material.color.set("#ce4670");
+        donut.children[1].visible = false;
+        donut.children[2].visible = false;
         donut.children[2].material.color.set("rgb(225, 225, 225)");
         donut.children[2].material.emissive.set("rgb(200, 200, 200)");
         console.log(donut)
