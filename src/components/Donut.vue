@@ -51,8 +51,8 @@
     let donut;
     gltfLoader.load('/DonutMix.glb', ( glb ) => {
         donut = glb.scene;
-        donut.scale.set(60, 60, 60);
-        donut.position.set(-.35, 5, 0);
+        donut.scale.set(55, 55, 55);
+        donut.position.set(-.35, 4 , 0);
         donut.rotateX(0.3);
         donut.rotateZ(-0.10);
         donut.children[0].material.color.set("#ce4670");
