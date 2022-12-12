@@ -53,8 +53,6 @@
                 console.log(e.target.value)
             })
         });
-
-
     })
 
     //load DonutMix.glb
@@ -78,7 +76,6 @@
         donut.children[2].material.emissive.set("rgb(200, 200, 200)");
         console.log(donut)
         scene.add( donut );
-
     });
 
     const DirectionalLight = new THREE.DirectionalLight(0xfffffff, .5);
