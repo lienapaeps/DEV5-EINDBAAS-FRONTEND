@@ -81,7 +81,7 @@
     //load DonutMix.glb
     const gltfLoader = new GLTFLoader();
     let donut;
-    gltfLoader.load('/DonutMix.glb', ( glb ) => {
+    gltfLoader.load('/DEZE.glb', ( glb ) => {
         donut = glb.scene;
         if (window.innerWidth < 768) {
             donut.scale.set(55, 55, 55);
@@ -98,6 +98,18 @@
         donut.children[2].material.color.set("rgb(225, 225, 225)");
         donut.children[2].material.emissive.set("rgb(200, 200, 200)");
         donut.children[3].visible = false; //maltesers
+        donut.children[3].position.set(0.0326, 0.0467, 0.002);
+        donut.children[3].rotateX(-.1);
+        donut.children[3].children[0].material.emissive.set("rgb(70, 40, 40)");
+        donut.children[3].children[0].material.color.set("rgb(70, 40, 40)");
+        donut.children[3].children[1].material.emissive.set("rgb(70, 40, 40)");
+        donut.children[3].children[1].material.color.set("rgb(70, 40, 40)");
+        donut.children[3].children[2].material.emissive.set("rgb(70, 40, 40)");
+        donut.children[3].children[2].material.color.set("rgb(70, 40, 40)");
+        donut.children[3].children[3].material.emissive.set("rgb(70, 40, 40)");
+        donut.children[3].children[3].material.color.set("rgb(70, 40, 40)");
+        donut.children[3].children[4].material.emissive.set("rgb(70, 40, 40)");
+        donut.children[3].children[4].material.color.set("rgb(70, 40, 40)");
         console.log(donut)
         scene.add( donut );
     });
