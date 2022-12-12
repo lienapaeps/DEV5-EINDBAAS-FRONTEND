@@ -1,5 +1,6 @@
 <script setup>
     import Donut from '../components/Donut.vue'
+    import OrderForm from '../components/OrderForm.vue'
 </script>
 
 <template>
@@ -58,6 +59,9 @@
                 <input type="radio" name="logo" id="oval" value="oval">
                 <label for="oval" class="logo logo--oval"></label>
             </div>
+        </div>
+        <div class="order">
+            <OrderForm/>
         </div>
     </body>
 </template>
