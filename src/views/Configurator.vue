@@ -23,7 +23,6 @@
             <div class="customization">
                 <Customization/>
             </div>
-
         </div>
         <div class="order">
             <OrderForm/>

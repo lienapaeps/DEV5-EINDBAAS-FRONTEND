@@ -29,26 +29,49 @@
 
         //sprinkles
         const sprinklescheck = document.querySelector(".topping--sprinkles");
-        // console.log(sprinklescheck);
         sprinklescheck.addEventListener("click", () => {
-            // console.log("sprinkles");
-            //remove sprinkles
-            donut.children[2].visible = false;
+            if(donut.children[1].visible == true) {
+                donut.children[1].visible = false;
+            } else {
+                donut.children[1].visible = true;
+            }
         })
 
-        //crumbs
+        //crumbles
+        const crumblescheck = document.querySelector(".topping--crumbles");
+        crumblescheck.addEventListener("click", () => {
+            if(donut.children[3].visible == true) {
+                donut.children[3].visible = false;
+            } else {
+                donut.children[3].visible = true;
+            }
+        })
 
-        //marshmallow
+        //marshmallows
+        const marshmallowscheck = document.querySelector(".topping--marshmallow");
+        marshmallowscheck.addEventListener("click", () => {
+            if(donut.children[2].visible == true) {
+                donut.children[2].visible = false;
+            } else {
+                donut.children[2].visible = true;
+            }
+        })
 
-        //maltesers
+        //malteser
+        const maltesercheck = document.querySelector(".topping--malteser");
+        maltesercheck.addEventListener("click", () => {
+            if(donut.children[3].visible == true) {
+                donut.children[3].visible = false;
+            } else {
+                donut.children[3].visible = true;
+            }
+        })
 
         //icing color
         const icing = document.querySelectorAll(".icinginput");
         //foreach icing log the color
         icing.forEach(ice => {
             ice.addEventListener("click", (e) => {
-                // console.log(ice);
-                //remove sprinkles
                 donut.children[0].material.color.set(e.target.value);
                 console.log(e.target.value)
             })
@@ -69,11 +92,12 @@
         }
         donut.rotateX(0.3);
         donut.rotateZ(-0.10);
-        donut.children[0].material.color.set("#ce4670");
-        donut.children[1].visible = false;
-        donut.children[2].visible = false;
+        donut.children[0].material.color.set("#ce4670"); //glace
+        donut.children[1].visible = false; //sprinkles
+        donut.children[2].visible = false; //marshmallows
         donut.children[2].material.color.set("rgb(225, 225, 225)");
         donut.children[2].material.emissive.set("rgb(200, 200, 200)");
+        donut.children[3].visible = false; //maltesers
         console.log(donut)
         scene.add( donut );
     });
