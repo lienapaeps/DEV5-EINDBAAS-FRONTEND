@@ -1,5 +1,15 @@
 <script setup>
-    import Donut from '../components/Donut.vue'
+    import { onMounted } from 'vue';
+    import Donut from '../components/Donut.vue';
+
+   onMounted( () => {
+        let colorLabels = document.querySelectorAll(".icing");
+        colorLabels.forEach((color, index)=>{
+            let colorValue = color.dataset.color;
+            color.style.backgroundColor = colorValue;
+        })
+    })
+
 </script>
 
 <template>
@@ -10,18 +20,40 @@
         </div>
         <div class="options">
             <h2>Glazuur</h2>
-            <div class="options__container">
-                <input type="radio" id="red" name="glaze" value="red">
-                <label for="red" class="glaze glaze--red"></label>
+            <div class="options__container icing__container">
+                <input type="radio" id="strawberry" name="icing" value="rgb(216, 134, 167)" class="icinginput">
+                <label for="strawberry" class="icing icing--strawberry" data-color="rgb(254, 157, 196)"></label>
 
-                <input type="radio" id="pink" name="glaze" value="pink">
-                <label for="pink" class="glaze glaze--pink"></label>
+                <input type="radio" id="brown" name="icing" value="rgb(130, 80, 69)" class="icinginput">
+                <label for="brown" class="icing icing--brown" data-color="rgb(130, 80, 69)"></label>
 
-                <input type="radio" id="brown" name="glaze" value="brown">
-                <label for="brown" class="glaze glaze--brown"></label>
+                <input type="radio" id="pistache" name="icing" value="rgb(137, 167, 97)" class="icinginput">
+                <label for="pistache" class="icing icing--pistache" data-color="rgb(137, 167, 97)"></label>
+                
+                <input type="radio" id="white" name="icing" value="rgb(190, 190, 195)" class="icinginput">
+                <label for="white" class="icing icing--white" data-color="rgb(237, 239, 244)"></label>
 
-                <input type="radio" id="green" name="glaze" value="green">
-                <label for="green" class="glaze glaze--green"></label>
+                <input type="radio" id="lime" name="icing" value="rgb(152, 175, 149)" class="icinginput">
+                <label for="lime" class="icing icing--lime" data-color="rgb(152, 175, 149)"></label>
+
+                <input type="radio" id="cherry" name="icing" value="rgb(211, 83, 143)" class="icinginput">
+                <label for="cherry" class="icing icing--cherry" data-color="rgb(211, 83, 143)"></label>
+
+                <input type="radio" id="caramel" name="icing" value="rgb(180, 100, 2)" class="icinginput">
+                <label for="caramel" class="icing icing--caramel" data-color="rgb(180, 100, 2)"></label>
+
+                <input type="radio" id="chocloate" name="icing" value="rgb(80, 43, 40)" class="icinginput">
+                <label for="chocloate" class="icing icing--chocloate" data-color="rgb(86, 49, 45)"></label>
+
+                <input type="radio" id="banana" name="icing" value="rgb(225, 196, 79)" class="icinginput">
+                <label for="banana" class="icing icing--banana" data-color="rgb(255, 233, 89)"></label>
+
+                <input type="radio" id="ruby" name="icing" value="rgb(185, 108, 117)" class="icinginput">
+                <label for="ruby" class="icing icing--ruby" data-color="rgb(223, 130, 141)"></label>
+
+                <input type="radio" id="speculoos" name="icing" value="rgb(193, 132, 88)" class="icinginput">
+                <label for="speculoos" class="icing icing--speculoos" data-color="rgb(197, 136, 91)"></label>
+                
             </div>
         </div>
         <div class="options">
@@ -83,6 +115,8 @@ h1{
 
 input[type="radio"]{
     visibility: hidden;
+    width: 0rem;
+    margin: 0;
 }
 
 .options__container{
@@ -91,29 +125,39 @@ input[type="radio"]{
     gap: 15px;
 }
 
-.glaze {
+.icing__container {
+    display: flex;
+    gap: 5px;
+    overflow-x:scroll;
+    padding-bottom: 5px;
+}
+
+.icing {
     display: block;
-    height: 30px;
-    width: 30px;
-    padding: 2px;
+    height: 2rem;
+    width: 2rem;
+    min-width: 2rem;
+    padding: .5rem;
     border-radius: 50%;
 }
 
-.glaze--red {
-    background-color: red;
+.icing__container::-webkit-scrollbar {
+    height: 10px;
+    margin: 5px 5px;
+    background:rgb(255, 255, 255);
+    border-radius: 15px;
 }
 
-.glaze--pink {
-    background-color: pink;
+.icing__container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgb(203, 26, 26); 
+    background: transparent;
+    color: transparent;
 }
 
-.glaze--brown {
-    background-color: rgb(165, 81, 42);
-}
-
-.glaze--green {
-    background-color: green;
-}
+.icing__container::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background:var(--strawberry-pink);
+} 
 
 .topping img{
     display: block;

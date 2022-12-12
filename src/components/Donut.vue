@@ -16,6 +16,34 @@
     onMounted (() => {
         document.querySelector(".donut").appendChild(renderer.domElement);
 
+        //sprinkles
+        const sprinklescheck = document.querySelector(".topping--sprinkles");
+        // console.log(sprinklescheck);
+        sprinklescheck.addEventListener("click", () => {
+            // console.log("sprinkles");
+            //remove sprinkles
+            donut.children[2].visible = false;
+        })
+
+        //crumbs
+
+        //marshmallow
+
+        //maltesers
+
+        //icing color
+        const icing = document.querySelectorAll(".icinginput");
+        //foreach icing log the color
+        icing.forEach(ice => {
+            ice.addEventListener("click", (e) => {
+                // console.log(ice);
+                //remove sprinkles
+                donut.children[0].material.color.set(e.target.value);
+                console.log(e.target.value)
+            })
+        });
+
+
     })
 
     //load DonutMix.glb
@@ -23,14 +51,19 @@
     let donut;
     gltfLoader.load('/DonutMix.glb', ( glb ) => {
         donut = glb.scene;
-        donut.scale.set(70, 70, 70);
-        donut.position.set(-.4, 5, 0);
+        donut.scale.set(55, 55, 55);
+        donut.position.set(-.35, 4 , 0);
         donut.rotateX(0.3);
         donut.rotateZ(-0.10);
+        donut.children[0].material.color.set("#ce4670");
+        donut.children[2].material.color.set("rgb(225, 225, 225)");
+        donut.children[2].material.emissive.set("rgb(200, 200, 200)");
+        console.log(donut)
         scene.add( donut );
+
     });
 
-    const DirectionalLight = new THREE.DirectionalLight(0xfffffff, 1.2);
+    const DirectionalLight = new THREE.DirectionalLight(0xfffffff, .5);
     DirectionalLight.position.set(2, 4, 2);
     scene.add(DirectionalLight);
 
