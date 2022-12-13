@@ -10,7 +10,7 @@ function login() {
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
 
-        fetch("http://localhost:3000/users/login", {
+        fetch("https://dev5-donuttello.onrender.com/api/v1/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
