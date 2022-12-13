@@ -61,6 +61,10 @@ onMounted(() => {
         <div class="row">
             <Button text="Log in" class="btn btn--strawberry btn--login" textclass="btn__text" />
         </div>
+
+        <p class="forgot-password">
+            <a href="#/changepassword">Wachtwoord vergeten?</a>
+        </p>
     </form>
 </template>
 

@@ -5,6 +5,7 @@ import LogIn from '../views/LogIn.vue';
 import Home from '../views/Home.vue'
 import Gallery from '../views/Gallery.vue'
 import Configurator from '../views/Configurator.vue'
+import ChangePassword from './ChangePassword.vue';
 
 // routing with dynamc components
 // https://vuejs.org/guide/scaling-up/routing.html#simple-routing-from-scratch
@@ -13,6 +14,7 @@ const routes = {
     '/login': LogIn,
     '/gallery': Gallery,
     '/configurator': Configurator,
+    '/changepassword': ChangePassword
 }
 
 const currentPath = ref(window.location.hash)
