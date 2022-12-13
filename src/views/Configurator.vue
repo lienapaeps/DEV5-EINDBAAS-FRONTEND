@@ -215,7 +215,7 @@ input[type="radio"]{
 /* Desktop */
 @media (min-width: 992px) {
     body {
-        margin: 0;
+        margin: 30px;
         padding: 0;
     }
 }    

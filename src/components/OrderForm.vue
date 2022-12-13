@@ -38,4 +38,25 @@ input{
     border: 1px solid black;
 }
 
+/* Tablet */
+@media (min-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    form{
+        width: 20%;
+    }
+}
+
 </style>
