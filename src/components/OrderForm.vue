@@ -1,18 +1,19 @@
 <script setup>
-
+import Button from '../components/Button.vue'
 
 </script>
 
 <template>
 
     <div class="form">
-        <h2>Vul in!</h2>
-        <form>
+        <h2>Bestel hier</h2>
+        <form class="form form__order">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Email" required>
             <label for="name">Bedrijfsnaam</label>
             <input type="text" id="name" name="name" placeholder="Naam" required>
         </form>
+        <Button text="Bestel" class="btn btn--strawberry" textclass="btn__text"/>
     </div>
 
 
@@ -25,7 +26,7 @@
     padding-top: 20px;
 }
 
-form {
+.form__order {
     display: flex;
     flex-direction: column;
     gap: 10px;

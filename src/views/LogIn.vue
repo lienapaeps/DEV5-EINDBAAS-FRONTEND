@@ -7,7 +7,6 @@ import LogInForm from '../components/LogInForm.vue'
 
 <template>
     <div class="app">
-        <h1>Admin log in</h1>
         <LogInForm />
     </div>
 </template>

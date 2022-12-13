@@ -42,7 +42,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <form action="#">
+    <form class="form form__login" action="#">
 
         <h3>Wachtwoord veranderen</h3>
 
@@ -82,7 +82,7 @@ input {
     box-sizing: border-box;
 }
 
-form {
+.form__login {
     padding: 2em;
     width: 70%;
     position: absolute;
@@ -106,16 +106,9 @@ label {
 
 /* Desktop */
 @media (min-width: 992px) {
-    form {
+    .form__login {
         margin-top: 1em;
-        padding: 2em;
         width: 20%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 1em;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
     }
 }

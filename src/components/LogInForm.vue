@@ -46,10 +46,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <form action="#">
+    <form class="form form__login" action="#">
         <div class="alert hidden">
             Here is some feedback
         </div>
+        <h3>Admin login</h3>
         <div class="row">
             <label for="username">Username</label>
             <input type="text" id="username" name="username">
