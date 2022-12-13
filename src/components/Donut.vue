@@ -2,21 +2,28 @@
     import * as THREE from 'three';
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
     import { onMounted } from 'vue';
+    // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
     // const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 3, 1000 );
-    const camera = new THREE.OrthographicCamera( window.innerWidth / - 150, window.innerWidth / 150, window.innerHeight / 150, window.innerHeight / -150, 1, 1000); 
+    let camera = new THREE.OrthographicCamera( window.innerWidth / - 150, window.innerWidth / 150, window.innerHeight / 150, window.innerHeight / -150, 1, 1000); 
     camera.position.z = 10;
     camera.position.y = 3;
-    
+
+    let stopturning = false;
+
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight )
     if (window.innerWidth < 768) {
         renderer.setSize( window.innerWidth, window.innerHeight )
     } else {
         renderer.setSize( window.innerWidth / 2, window.innerHeight/2 )
     }
+
+    // const controls = new OrbitControls( camera, renderer.domElement );
+    // only orbit around the x axis
+    // controls.minPolarAngle = Math.PI/2;
+    // controls.maxPolarAngle = Math.PI/2;
 
     function resize() {
         window.location.reload();
@@ -33,6 +40,8 @@
             if(donut.children[1].visible == true) {
                 donut.children[1].visible = false;
             } else {
+                const border = document.querySelector(".topping--sprinkles")
+                border.style.border = "3px solid var(--strawberry-pink))";
                 donut.children[1].visible = true;
             }
         })
@@ -73,9 +82,55 @@
         icing.forEach(ice => {
             ice.addEventListener("click", (e) => {
                 donut.children[0].material.color.set(e.target.value);
-                console.log(e.target.value)
+                // console.log(e.target.value)
             })
         });
+
+        let fileInput = document.getElementById('company_logo');
+        var rectangleTexture;
+        fileInput.addEventListener("change", function(e) {
+            stopturning = true;
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+            const uploadedImage = reader.result;
+            console.log(uploadedImage)
+            rectangleTexture = new THREE.TextureLoader().load( uploadedImage );
+            console.log(rectangleTexture)
+
+            // rectanglecard
+            const rectangleGeometry = new THREE.BoxGeometry(3, .1, 1.5);
+            const rectangleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
+            rectangleMaterial.map = rectangleTexture;
+            const rectangle = new THREE.Mesh(rectangleGeometry, rectangleMaterial);
+            rectangle.name = "rectangle";
+            if (window.innerWidth < 768) {
+                rectangle.scale.set(.8, 1, .8);
+                rectangle.position.set(0, 6, 3.3)
+            } else {
+                rectangle.position.set(0, 2, 4.5)
+            }
+            rectangle.rotation.x = 1.65; //1.5
+            rectangle.rotation.y = -.03; //1.5
+
+            const checkboxRectangle = document.querySelector(".logo--rectangle");
+            checkboxRectangle.addEventListener("click", () => {
+                if (scene.getObjectByName('rectangle')) {
+                    // scene.remove(square);
+                    // scene.remove(circle);
+                    // scene.remove(oval);
+                    scene.remove(rectangle);
+                } else {
+                    scene.add(rectangle);
+                }
+            });
+
+            // document.getElementById("imageContainer").style.backgroundImage = 'url('+uploadedImage+')';
+            // document.getElementById("base64Container").innerHTML = uploadedImage;
+        });
+        reader.readAsDataURL(this.files[0]);
+        });
+
+        
     })
 
     //load DonutMix.glb
@@ -85,7 +140,7 @@
         donut = glb.scene;
         if (window.innerWidth < 768) {
             donut.scale.set(55, 55, 55);
-            donut.position.set(-.35, 4 , 0);
+            donut.position.set(-.35, 5 , 0);
         } else {
             donut.scale.set(80, 80, 80);
             donut.position.set(-.5, 1 , 0);
@@ -110,7 +165,7 @@
         donut.children[3].children[3].material.color.set("rgb(70, 40, 40)");
         donut.children[3].children[4].material.emissive.set("rgb(70, 40, 40)");
         donut.children[3].children[4].material.color.set("rgb(70, 40, 40)");
-        console.log(donut)
+        // console.log(donut)
         scene.add( donut );
     });
 
@@ -121,22 +176,23 @@
     const ambientLight = new THREE.AmbientLight( 0xffffff, 0.7 );
     scene.add( ambientLight );
 
+    
     function animate() {
     requestAnimationFrame(animate);
     if (donut) {
-        donut.rotation.y += 0.002;
+        if(stopturning == false) {
+            donut.rotation.y += 0.002;
+        }
     }
     renderer.render(scene, camera);
     }
 
-animate();
+    animate();
     
 </script>
 
 <template>
-    <div>
-
-    </div>
+    
 </template>
 
 <style scoped>
