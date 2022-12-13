@@ -63,7 +63,7 @@ h1{
         overflow: hidden;
     }
     .customization {
-    width: 50vw;
+        width: 40vw;
     }
 }
 </style>
