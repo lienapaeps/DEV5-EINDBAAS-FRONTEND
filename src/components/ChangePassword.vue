@@ -1,42 +1,14 @@
-<template>
-    <form @submit.prevent="handleSubmit">
-
-        <h3>Wachtwoord veranderen</h3>
-
-        <div class="form-group">
-            <label for="username">Email</label>
-            <input type="text" name="username" id="username"/>
-        </div>
-
-        <div class="form-group">
-            <label for="oldpassword">Vorig wachtwoord</label>
-            <input type="password" name="oldpassword" id="oldPassword"/>
-        </div>
-
-        <div class="form-group">
-            <label for="new-password">Nieuw wachtwoord</label>
-            <input type="password" name="new-password" id="newPassword"/>
-        </div>
-
-        <div class="form-group">
-            <Button text="Verander" class="btn btn--strawberry btn--change" textclass="btn__text" />
-        </div>
-    </form>
-
-
-</template>
-
 <script setup>
 import Button from './Button.vue'
 import { onMounted } from 'vue'
-    function changePassword() {
+function changePassword() {
     let btnChange = document.querySelector(".btn--change").addEventListener("click", function () {
         console.log("clicked");
         let username = document.querySelector("#username").value;
         let oldPassword = document.querySelector("#oldPassword").value;
         let newPassword = document.querySelector("#newPassword").value;
 
-        fetch("http://localhost:3000/users/changePassword", {
+        fetch("https://dev5-donuttello.onrender.com/api/v1/users/changePassword", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -47,12 +19,9 @@ import { onMounted } from 'vue'
                 newPassword: newPassword
             })
         })
-        .then(response => response.json())
+            .then(response => response.json())
             .then((json) => {
                 if (json.status === "success") {
-                    let token = json.data.token;
-                    localStorage.setItem("token", token);
-
                     window.location.href = "#/login";
                 } else {
                     let feedback = document.querySelector(".alert");
@@ -72,6 +41,38 @@ onMounted(() => {
 
 </script>
 
+<template>
+    <form action="#">
+
+        <h3>Wachtwoord veranderen</h3>
+
+        <div class="alert hidden">
+            Here is some feedback
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" />
+        </div>
+
+        <div class="form-group">
+            <label for="oldPassword">Vorig wachtwoord</label>
+            <input type="password" name="oldPassword" id="oldPassword" />
+        </div>
+
+        <div class="form-group">
+            <label for="newPassword">Nieuw wachtwoord</label>
+            <input type="password" name="newPassword" id="newPassword" />
+        </div>
+
+        <div class="form-group">
+            <Button text="Verander" class="btn btn--strawberry btn--change" textclass="btn__text" />
+        </div>
+    </form>
+
+
+</template>
+
 <style>
 input {
     width: 100%;
@@ -81,15 +82,15 @@ input {
     box-sizing: border-box;
 }
 
-form{
+form {
     padding: 2em;
-        width: 70%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 1em;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1em;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 label {
@@ -117,5 +118,5 @@ label {
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
     }
-}  
+}
 </style>

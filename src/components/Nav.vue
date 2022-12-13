@@ -77,7 +77,7 @@ label {
     font-size: 2em;
     color: white;
     text-align: center;
-} 
+}
 
 #toggle {
     position: absolute;
@@ -95,7 +95,7 @@ label {
     top: 4rem;
     left: 0;
     display: none;
-} 
+}
 
 #toggle:checked~.nav__menu {
     display: block;
