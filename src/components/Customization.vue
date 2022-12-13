@@ -5,7 +5,7 @@
 <template>
     <div class="options">
         <h2>Glazuur</h2>
-        <div class="options__container icing__container">
+        <div class="options__container icing__container border__select">
             <input type="radio" id="strawberry" name="icing" value="rgb(216, 134, 167)" class="icinginput">
             <label for="strawberry" class="icing icing--strawberry" data-color="rgb(254, 157, 196)"></label>
 
@@ -43,17 +43,17 @@
     </div>
     <div class="options">
         <h2>Topping</h2>
-        <div class="options__container">
-            <input type="radio" name="topping" id="sprinkles" value="sprinkles">
+        <div class="options__container topping__container border__select">
+            <input type="checkbox" name="topping" id="sprinkles" value="sprinkles">
             <label for="sprinkles" class="topping topping--sprinkles"><img src="../../imgs/sprinkel_topping.jpg" alt="sprinkles"></label>
 
-            <input type="radio" name="topping" id="crumbles" value="crumbles">
+            <input type="checkbox" name="topping" id="crumbles" value="crumbles">
             <label for="crumbles" class="topping topping--crumbles"><img src="../../imgs/oreo_topping.jpg" alt="oreo"></label>
 
-            <input type="radio" name="topping" id="marshmallow" value="marshmallow">
+            <input type="checkbox" name="topping" id="marshmallow" value="marshmallow">
             <label for="marshmallow" class="topping topping--marshmallow"><img src="../../imgs/marshmallow_topping.jpg" alt="marshmallow"></label>
 
-            <input type="radio" name="topping" id="malteser" value="malteser">
+            <input type="checkbox" name="topping" id="malteser" value="malteser">
             <label for="malteser" class="topping topping--malteser"><img src="../../imgs/malteser_topping.jpg" alt="malteser"></label>
         </div>
     </div>
@@ -85,51 +85,108 @@ input[type="radio"]{
     margin: 0;
 }
 
+input[type="checkbox"]{
+    visibility: hidden;
+    width: 0rem;
+    margin: 0;
+}
+
+input[type="file"]{
+    font-family: 'Dosis', sans-serif;
+    border: 2px solid var(-strawberry-pink);
+}
+
+input[type="file"]::-webkit-file-upload-button{
+    border: 2px solid var(--strawberry-pink);
+    background-color: var(--strawberry-pink);
+    border-radius: 1.5rem;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    color: var(--warm-lemon);
+}
+
+input[type="file"]::-webkit-file-upload-button:hover{
+    border: 2px solid var(--pink);
+    background-color: var(--pink);
+    border-radius: 1.5rem;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    color: var(--warm-lemon);
+    cursor: pointer;
+}
+
 .options__container{
     display: flex;
     flex-direction: row;
-    gap: 15px;
-}
-
-.icing__container {
-    display: flex;
+    align-items: center;
     gap: 5px;
-    overflow-x:scroll;
     padding-bottom: 5px;
+    overflow-x:scroll;
+    overflow-y: hidden;
 }
 
-.icing {
+.border__select input[type="radio"]+label{
+    border: 3px solid transparent;
+    border-radius: 50%;
+}
+
+.border__select input[type="radio"]:checked+label{
+    border: 3px solid var(--strawberry-pink);
+}
+
+.border__select input[type="checkbox"]+label{
+    border: 3px solid transparent;
+    border-radius: 50%;
+}
+
+.border__select input[type="checkbox"]:checked+label{
+    border: 3px solid var(--strawberry-pink);
+}
+
+.icing, .topping {
     display: block;
-    height: 2rem;
-    width: 2rem;
-    min-width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    min-width: 1.5rem;
     padding: .5rem;
     border-radius: 50%;
 }
 
-.icing__container::-webkit-scrollbar {
+.options__container::-webkit-scrollbar {
     height: 10px;
     margin: 5px 5px;
     background:rgb(255, 255, 255);
     border-radius: 15px;
 }
 
-.icing__container::-webkit-scrollbar-track {
+.options__container::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 0px rgb(203, 26, 26); 
     background: transparent;
     color: transparent;
 }
-
-.icing__container::-webkit-scrollbar-thumb {
+.options__container::-webkit-scrollbar-thumb {
     border-radius: 15px;
     background:var(--strawberry-pink);
 } 
 
+.topping {
+    position: relative;
+}
+
 .topping img{
-    display: block;
-    height: 34px;
-    width: 34px;
+    height: 2.55rem;
+    width: 2.55rem;
     border-radius: 50%;
+    position: absolute;
+    top: -0.5px;
+    left: -0.01px;
+
 }
 
 .logo{
