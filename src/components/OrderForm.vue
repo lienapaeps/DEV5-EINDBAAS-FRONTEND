@@ -13,7 +13,7 @@ import Button from '../components/Button.vue'
             <label for="name">Bedrijfsnaam</label>
             <input type="text" id="name" name="name" placeholder="Naam" required>
         </form>
-        <Button text="Bestel" class="btn btn--strawberry" textclass="btn__text"/>
+        <a href="#/orderok"><Button text="Bestel" class="btn btn--strawberry" textclass="btn__text"/></a>
     </div>
 
 
