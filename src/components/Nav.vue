@@ -40,7 +40,7 @@ const currentView = computed(() => {
         <ul class="nav__menu">
             <li><a href="#/">Home</a></li>
             <li><a href="#/configurator">Configurator</a></li>
-            <li><a href="#/gallery">Gallerij</a></li>
+            <!-- <li><a href="#/gallery">Gallerij</a></li> -->
             <!-- <a href="#/login">Log in</a> -->
         </ul>
     </nav>
@@ -62,7 +62,7 @@ nav {
 }
 
 .nav__menu li {
-    width: 100%;
+    width: 30%;
     list-style: none;
     padding: 1em 0;
 }
@@ -127,7 +127,7 @@ label {
         padding: 0;
         width: 60%;
         margin: 0;
-        margin-left: 40%;
+        margin-left: 50%;
     }
 }
 
@@ -138,7 +138,7 @@ label {
     }
 
     .nav__menu {
-        margin-left: 60%;
+        margin-left: 70%;
         width: 40%;
     }
 
