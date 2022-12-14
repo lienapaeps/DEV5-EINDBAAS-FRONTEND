@@ -36,7 +36,7 @@ const logOut = () => {
     window.location.href = "#/home";
 }
 
-const checkLogin = () => {
+const loggedIn = () => {
     if (localStorage.getItem("token") === null) {
         return false;
     } else {
@@ -45,7 +45,7 @@ const checkLogin = () => {
 }
 
 onMounted(() => {
-    checkLogin();
+    loggedIn();
     logOut();
 })
 
@@ -60,7 +60,7 @@ onMounted(() => {
         <input type="checkbox" id="toggle" />
         <ul class="nav__menu">
             <!-- if user logged in  -->
-            <template v-if="checkLogin()">
+            <template v-if="loggedIn()">
                 <li><a href="#/gallery">Gallerij</a></li>
                 <li><a href="#/changepassword">Instellingen</a></li>
                 <li><a href="" @click="logOut()">Uitloggen</a></li>
