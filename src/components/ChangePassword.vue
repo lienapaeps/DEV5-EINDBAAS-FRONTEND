@@ -25,7 +25,7 @@ function changePassword() {
                     window.location.href = "#/login";
                 } else {
                     let feedback = document.querySelector(".alert");
-                    feedback.textContent = "Username or password is invalid";
+                    feedback.textContent = "Gebruikersnaam of wachtwoord zijn fout";
                     feedback.classList.remove("hidden");
                     feedback.style.backgroundColor = "#f8d7da";
                     feedback.style.color = "#721c24";
@@ -51,7 +51,7 @@ onMounted(() => {
         </div>
 
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Gebruikersnaam</label>
             <input type="text" name="username" id="username" />
         </div>
 

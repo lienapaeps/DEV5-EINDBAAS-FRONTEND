@@ -29,7 +29,7 @@ function login() {
                     window.location.href = "#/gallery";
                 } else {
                     let feedback = document.querySelector(".alert");
-                    feedback.textContent = "Username or password is invalid";
+                    feedback.textContent = "Gebruikersnaam of wachtwoord zijn fout";
                     feedback.classList.remove("hidden");
                     feedback.style.backgroundColor = "#f8d7da";
                     feedback.style.color = "#721c24";
@@ -52,7 +52,7 @@ onMounted(() => {
         </div>
         <h3>Admin login</h3>
         <div class="row">
-            <label for="username">Username</label>
+            <label for="username">Gebruikersnaam</label>
             <input type="text" id="username" name="username">
         </div>
         <div class="row">
