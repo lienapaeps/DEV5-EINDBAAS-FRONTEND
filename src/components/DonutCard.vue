@@ -1,4 +1,6 @@
 <script setup>
+import { onMounted } from 'vue';
+import Button from './Button.vue'
 
 // functie dat checkt of er maar 1 checkbox is aangeduid
 function check(input) {
@@ -21,10 +23,44 @@ function check(input) {
     }
 }
 
+// als card__delete is aangeklikt, dan wordt de card__warning getoond
+function showWarning() {
+
+    const button = document.querySelector(".deleted");
+
+    button.addEventListener("click", function (){
+        const warning = document.querySelector(".card__warning");
+        warning.classList.remove("hidden");
+    })
+}
+
+function hideWarning() {
+
+    const button = document.querySelector(".btn--strawberry");
+
+    button.addEventListener("click", function (){
+        const warning = document.querySelector(".card__warning");
+        warning.classList.add("hidden");
+    })
+}
+
+onMounted(() => {
+        showWarning();
+        hideWarning();
+})
+
+
+
 </script>
 
 <template>
     <div class="card">
+        <div class="card__warning hidden">
+            <h3>Let op!</h3>
+            <p>Wil je deze donut verwijderen?</p>
+            <Button text="Behouden" class="btn btn--strawberry btn--login" textclass="btn__text" />
+            <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
+        </div>
         <div class="card__image">
             <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
         </div>
@@ -40,9 +76,9 @@ function check(input) {
             </a>
         </div>
         <div class="card__delete">
-            <a href="">
+            <button class="deleted">
                 <img src="../../imgs/trash-regular.svg" alt="Trash icon">
-            </a>
+            </button>
         </div>
         <div class="card__status">
             <form class="card__status__form" action="">
@@ -60,6 +96,22 @@ function check(input) {
 <style scoped>
 .aantal {
     font-weight: 500;
+}
+
+/* .hidden {
+    display: none;
+} */
+
+.card__warning{
+    position: absolute;
+    background-color: #ffffffd3;
+    border-radius: 1em;
+    top: 0em;
+    left: 0em;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 1;
 }
 
 .card {
@@ -103,13 +155,14 @@ function check(input) {
     margin-bottom: 0.5;
 }
 
-.card__delete {
+.deleted {
     background-color: var(--strawberry-pink);
-    width: 20%;
+    width: 15%;
     text-align: center;
     position: absolute;
     top: 7em;
     right: 0;
+    border: none;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
@@ -125,13 +178,9 @@ function check(input) {
     border-bottom-left-radius: 8px;
 }
 
-.card__delete a {
+.deleted {
     display: block;
     padding: 1em 0;
-}
-
-.card__delete img {
-    width: 35%;
 }
 
 .card__edit img{
