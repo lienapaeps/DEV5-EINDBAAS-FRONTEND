@@ -27,9 +27,7 @@ function checkLogin() {
 
 // als card__delete is aangeklikt, dan wordt de card__warning getoond
 function showWarning() {
-
     const button = document.querySelector(".deleted");
-
     button.addEventListener("click", function () {
         const warning = document.querySelector(".card__warning");
         warning.classList.remove("hidden");
@@ -37,9 +35,7 @@ function showWarning() {
 }
 
 function hideWarning() {
-
     const button = document.querySelector(".btn--strawberry");
-
     button.addEventListener("click", function () {
         const warning = document.querySelector(".card__warning");
         warning.classList.add("hidden");
