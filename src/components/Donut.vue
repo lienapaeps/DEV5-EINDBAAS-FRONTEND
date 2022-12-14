@@ -2,7 +2,7 @@
     import * as THREE from 'three';
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
     import { onMounted } from 'vue';
-    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+    // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
@@ -20,7 +20,7 @@
         renderer.setSize( window.innerWidth / 2, window.innerHeight/2 )
     }
 
-    const controls = new OrbitControls( camera, renderer.domElement );
+    // const controls = new OrbitControls( camera, renderer.domElement );
     // only orbit around the x axis
     // controls.minPolarAngle = Math.PI/2;
     // controls.maxPolarAngle = Math.PI/2;

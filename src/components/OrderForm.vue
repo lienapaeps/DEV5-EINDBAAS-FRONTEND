@@ -7,7 +7,7 @@ import Button from '../components/Button.vue'
 
     <div class="form">
         <h2>Bestel hier</h2>
-        <form class="form form__order">
+        <form class="form__order">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Email" required>
             <label for="name">Bedrijfsnaam</label>
@@ -15,15 +15,12 @@ import Button from '../components/Button.vue'
         </form>
         <a href="#/orderok"><Button text="Bestel" class="btn btn--strawberry" textclass="btn__text"/></a>
     </div>
-
-
-
 </template>
 
 
 <style scoped>
 .form {
-    padding-top: 20px;
+    padding-top: 3rem;
 }
 
 .form__order {
@@ -52,10 +49,6 @@ input {
     body {
         margin: 0;
         padding: 0;
-    }
-
-    form {
-        width: 20%;
     }
 }
 </style>

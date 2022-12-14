@@ -48,7 +48,16 @@ h1{
     overflow: hidden;
 }
 
+.customization {
+    max-width: 50%;
+}
 
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40%;
+}
 
 @media screen and (min-width: 768px) {
     .header{
