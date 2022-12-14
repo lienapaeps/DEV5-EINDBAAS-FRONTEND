@@ -2,7 +2,7 @@
     import * as THREE from 'three';
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
     import { onMounted } from 'vue';
-    // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
@@ -20,7 +20,7 @@
         renderer.setSize( window.innerWidth / 2, window.innerHeight/2 )
     }
 
-    // const controls = new OrbitControls( camera, renderer.domElement );
+    const controls = new OrbitControls( camera, renderer.domElement );
     // only orbit around the x axis
     // controls.minPolarAngle = Math.PI/2;
     // controls.maxPolarAngle = Math.PI/2;
@@ -87,20 +87,20 @@
         });
 
         let fileInput = document.getElementById('company_logo');
-        var rectangleTexture;
+        var texture;
         fileInput.addEventListener("change", function(e) {
-            stopturning = true;
             const reader = new FileReader();
+            stopturning = true;
             reader.addEventListener("load", () => {
             const uploadedImage = reader.result;
             console.log(uploadedImage)
-            rectangleTexture = new THREE.TextureLoader().load( uploadedImage );
-            console.log(rectangleTexture)
+            texture = new THREE.TextureLoader().load( uploadedImage );
+            console.log(texture)
 
             // rectanglecard
             const rectangleGeometry = new THREE.BoxGeometry(3, .1, 1.5);
             const rectangleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
-            rectangleMaterial.map = rectangleTexture;
+            rectangleMaterial.map = texture;
             const rectangle = new THREE.Mesh(rectangleGeometry, rectangleMaterial);
             rectangle.name = "rectangle";
             if (window.innerWidth < 768) {
@@ -109,29 +109,119 @@
             } else {
                 rectangle.position.set(0, 2, 4.5)
             }
-            rectangle.rotation.x = 1.65; //1.5
-            rectangle.rotation.y = -.03; //1.5
+            rectangle.rotation.x = 1.65;
+            rectangle.rotation.y = -.03;
 
             const checkboxRectangle = document.querySelector(".logo--rectangle");
             checkboxRectangle.addEventListener("click", () => {
                 if (scene.getObjectByName('rectangle')) {
-                    // scene.remove(square);
-                    // scene.remove(circle);
-                    // scene.remove(oval);
                     scene.remove(rectangle);
                 } else {
                     scene.add(rectangle);
+                    scene.remove(square);
+                    scene.remove(circle);
+                    scene.remove(ellipse);
                 }
             });
 
+            // squarecard
+            const squareGeometry = new THREE.BoxGeometry(2.5, .1, 2.5);
+            const squareMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
+            squareMaterial.map = texture;
+            const square = new THREE.Mesh(squareGeometry, squareMaterial);
+            square.name = "square";
+            if (window.innerWidth < 768) {
+                square.scale.set(.8, 1, .8);
+                square.position.set(0, 6, 3.3)
+            } else {
+                square.position.set(0, 2, 4.5)
+            }
+            square.rotation.x = 1.65;
+            square.rotation.y = -.03;
+
+            const checkboxsquare = document.querySelector(".logo--square");
+            checkboxsquare.addEventListener("click", () => {
+                if (scene.getObjectByName('square')) {
+                    scene.remove(square);
+                } else {
+                    scene.add(square);
+                    scene.remove(rectangle);
+                    scene.remove(circle);
+                    scene.remove(ellipse);
+                }
+            });
+
+            // circlecard
+            const circleGeometry = new THREE.CylinderGeometry(1.5, 1.5, .2, 32);
+            const circleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
+            circleMaterial.map = texture;
+            const circle = new THREE.Mesh(circleGeometry, circleMaterial);
+            circle.name = "circle";
+            if (window.innerWidth < 768) {
+                circle.scale.set(.8, 1, .8);
+                circle.position.set(0, 6, 3.3)
+            } else {
+                circle.position.set(0, 2, 4.5)
+            }
+            circle.rotation.x = 1.65;
+            circle.rotation.y = -.03;
+
+            const checkboxcircle = document.querySelector(".logo--circle");
+            checkboxcircle.addEventListener("click", () => {
+                if (scene.getObjectByName('circle')) {
+                    scene.remove(circle);
+                } else {
+                    scene.add(circle);
+                    scene.remove(rectangle);
+                    scene.remove(square);
+                    scene.remove(ellipse);
+                }
+            });
+
+            // ellipsecard
+            const ellipseGeometry = new THREE.CylinderGeometry(1.5, 1.5, .2, 32);
+            // const ellipseGeometry = new THREE.EllipseCurve(
+            //     0,  0,            // ax, aY
+            //     1.5, 1.5,           // xRadius, yRadius
+            //     0,  2 * Math.PI,  // aStartAngle, aEndAngle
+            //     false,            // aClockwise
+            //     0                 // aRotation
+            // );
+            // const points = ellipseGeometry.getPoints( 50 );
+            // const ellipseGeometry2 = new THREE.BufferGeometry().setFromPoints( points );
+            // const ellipsePath = new THREE.Path(ellipseGeometry.getPoints(50));
+            // const ellipseGeometry2 = ellipsePath.createPointsGeometry(50);
+            const ellipseMaterial = new THREE.MeshLambertMaterial( { color : 0xffffff, side: THREE.DoubleSide } );
+            ellipseMaterial.map = texture;
+            const ellipse = new THREE.Mesh(ellipseGeometry, ellipseMaterial);
+            ellipse.name = "ellipse";
+            if (window.innerWidth < 768) {
+                ellipse.scale.set(.8, 1, .8);
+                ellipse.position.set(0, 6, 3.3)
+            } else {
+                ellipse.position.set(0, 2, 4.5)
+            }
+            ellipse.rotation.x = 1.65;
+            ellipse.rotation.y = -.03;
+
+            const checkboxellipse = document.querySelector(".logo--ellipse");
+            checkboxellipse.addEventListener("click", () => {
+                console.log('ellipse');
+                if (scene.getObjectByName('ellipse')) {
+                    scene.remove(ellipse);
+                } else {
+                    scene.add(ellipse);
+                    scene.remove(rectangle);
+                    scene.remove(square);
+                    scene.remove(circle);
+                }
+            });
+            });
             // document.getElementById("imageContainer").style.backgroundImage = 'url('+uploadedImage+')';
             // document.getElementById("base64Container").innerHTML = uploadedImage;
+            reader.readAsDataURL(this.files[0]);
         });
-        reader.readAsDataURL(this.files[0]);
-        });
-
-        
-    })
+    });
 
     //load DonutMix.glb
     const gltfLoader = new GLTFLoader();
