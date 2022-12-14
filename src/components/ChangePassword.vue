@@ -74,7 +74,7 @@ onMounted(() => {
 </template>
 
 <style>
-input {
+.form-group input {
     width: 100%;
     padding: 1em;
     border: 1px solid #ccc;
@@ -93,7 +93,7 @@ input {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-label {
+.form-group label {
     padding: 1em 1em 1em 0;
     display: inline-block;
 }

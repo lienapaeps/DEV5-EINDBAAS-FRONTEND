@@ -61,6 +61,7 @@ h1{
         left: 0;
         top: 5.5rem;
         overflow: hidden;
+    }
 }
 
 /* Desktop */
