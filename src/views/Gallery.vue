@@ -1,9 +1,11 @@
 <script setup>// logica
 import DonutCard from '../components/DonutCard.vue';
 
-import { ref, onMounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 
-// let donuts = ref([]);
+let donuts = reactive({
+    donuts: []
+});
 
 // enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
 function checkLogin() {
@@ -13,7 +15,9 @@ function checkLogin() {
         }
     }).then(res => res.json())
         .then(json => {
-            console.log(json);
+            // console.log(json.data);
+            donuts.donuts = json.data;
+            console.log(donuts.donuts);
         }).catch(err => {
             console.log("Only admin can access this page");
             window.location.href = "#/home";

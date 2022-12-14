@@ -12,8 +12,30 @@ import Button from '../components/Button.vue'
             <input type="email" id="email" name="email" placeholder="Email" required>
             <label for="companyName">Bedrijfsnaam</label>
             <input type="text" id="companyName" name="companyName" placeholder="Bedrijfsnaam" required>
+            <div class="form__order__group">
+                <div>
+                    <label for="street">Straat</label>
+                    <input type="text" id="street" name="street" placeholder="Straat" required>
+                </div>
+                <div>
+                    <label for="streetNumber">Straat nummer</label>
+                    <input type="text" id="streetNumber" name="streetNumber" placeholder="Straat nummer" required>
+                </div>
+            </div>
+            <div class="form__order__group">
+                <div>
+                    <label for="postalCode">Postcode</label>
+                    <input type="text" id="postalCode" name="postalCode" placeholder="Postcode" required>
+                </div>
+                <div>
+                    <label for="city">Gemeente</label>
+                    <input type="text" id="city" name="city" placeholder="Gemeente" required>
+                </div>
+            </div>
             <label for="donutAmount">Aantal donuts</label>
             <input style="width: 3rem" type="number" id="donutAmount" name="donutAmount" placeholder="20" required>
+            <label for="remarks">Opmerkingen</label>
+            <textarea name="remarks" id="remarks" cols="30" rows="10" placeholder="Opmerkingen"></textarea>
         </form>
         <Button text="Bestel" class="btn btn--strawberry btn--order" textclass="btn__text" />
     </div>
@@ -36,7 +58,8 @@ import Button from '../components/Button.vue'
     gap: 10px;
 }
 
-input {
+input,
+textarea {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid black;
@@ -57,5 +80,22 @@ input {
         margin: 0;
         padding: 0;
     }
+
+    .form__order__group {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5em;
+    }
+
+    .form__order__group label {
+        padding-bottom: 10px;
+    }
+
+    .form__order__group div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
 }
 </style>

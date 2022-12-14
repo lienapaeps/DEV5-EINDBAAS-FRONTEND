@@ -17,6 +17,7 @@ function addDonut() {
         let logoShape = document.querySelector("input[name=logo]:checked").value;
         let imageUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.webstaurantstore.com%2Farticle%2F593%2Ftypes-of-donuts.html&psig=AOvVaw13YcZw5WFWikaTMKs5xKtO&ust=1671087828074000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDFiLXF-PsCFQAAAAAdAAAAABAJ";
 
+
         let dataDonut = {
             email,
             nameCompany,
@@ -120,6 +121,7 @@ h1 {
         top: 5.5rem;
         overflow: hidden;
     }
+
     .customization {
         max-width: 50%;
     }
