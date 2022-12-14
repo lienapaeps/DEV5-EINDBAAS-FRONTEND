@@ -121,7 +121,7 @@ h1 {
         overflow: hidden;
     }
     .customization {
-    max-width: 40%;
+        max-width: 50%;
     }
 
 }
