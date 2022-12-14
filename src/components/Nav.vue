@@ -7,29 +7,18 @@ import Gallery from '../views/Gallery.vue'
 import Configurator from '../views/Configurator.vue'
 import OrderOk from '../views/OrderOk.vue'
 import ChangePassword from './ChangePassword.vue';
+import DonutDetails from '../views/DonutDetails.vue';
 
 // routing with dynamc components
 // https://vuejs.org/guide/scaling-up/routing.html#simple-routing-from-scratch
 const routes = {
-    '/': Home,
+    '/home': Home,
     '/login': LogIn,
     '/gallery': Gallery,
     '/configurator': Configurator,
     '/orderok': OrderOk,
-    '/changepassword': ChangePassword
-}
-
-const loggedIn = () => {
-    if (localStorage.getItem('token')) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function logout() {
-    localStorage.removeItem('token');
-    window.location.href = "#/home";
+    '/changepassword': ChangePassword,
+    '/details/:id': DonutDetails
 }
 
 const currentPath = ref(window.location.hash)
@@ -42,10 +31,24 @@ const currentView = computed(() => {
     return routes[currentPath.value.slice(1) || '/'] || Home
 })
 
+const logOut = () => {
+    localStorage.removeItem("token");
+    window.location.href = "#/home";
+}
+
+const checkLogin = () => {
+    if (localStorage.getItem("token") === null) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 onMounted(() => {
-    loggedIn();
-    // logout();
+    checkLogin();
+    logOut();
 })
+
 </script>
 
 <template>
@@ -56,17 +59,16 @@ onMounted(() => {
         <label for="toggle">&#8801</label>
         <input type="checkbox" id="toggle" />
         <ul class="nav__menu">
-            <!-- links for admin -->
-            <template v-if="loggedIn()">
+            <!-- if user logged in  -->
+            <template v-if="checkLogin()">
                 <li><a href="#/gallery">Gallerij</a></li>
                 <li><a href="#/changepassword">Instellingen</a></li>
-                <li><a href="#/home" @click="logout()">Uitloggen</a></li>
+                <li><a href="" @click="logOut()">Uitloggen</a></li>
             </template>
-            <!-- links for clients -->
+            <!-- if user not logged in  -->
             <template v-else>
                 <li><a href="#/">Home</a></li>
                 <li><a href="#/configurator">Configurator</a></li>
-                <!-- <a href="#/login">Log in</a> -->
             </template>
         </ul>
     </nav>
