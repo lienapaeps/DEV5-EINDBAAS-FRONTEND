@@ -3,9 +3,21 @@ import Button from './Button.vue'
 import { onMounted } from 'vue'
 
 // enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
-if (localStorage.getItem("token") === null) {
-    window.location.href = "#/home";
+function checkLogin() {
+    fetch("https://dev5-donuttello.onrender.com/api/v1/donuts", {
+        "method": "GET",
+        "headers": {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+    }).then(res => res.json())
+        .then(json => {
+            // console.log(json);
+        }).catch(err => {
+            console.log("Only admin can access this page");
+            window.location.href = "#/home";
+        })
 }
+
 
 function changePassword() {
     let btnChange = document.querySelector(".btn--change").addEventListener("click", function () {
@@ -42,6 +54,7 @@ function changePassword() {
 }
 
 onMounted(() => {
+    checkLogin();
     changePassword();
 });
 
