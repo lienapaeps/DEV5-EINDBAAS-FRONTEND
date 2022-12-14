@@ -42,10 +42,13 @@ function hideWarning() {
     })
 }
 
+// status van donut updaten
+
+
 onMounted(() => {
     checkLogin();
-    showWarning();
-    hideWarning();
+    // showWarning();
+    // hideWarning();
 });
 
 </script>
@@ -61,13 +64,16 @@ onMounted(() => {
                 <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
             </div>
             <div class="card__image">
-                <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
+                <a v-bind:href="'#/details/' + donut._id">
+                    <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
+                </a>
             </div>
             <div class="card__text">
                 <span class="card__highlight">Donut</span>
                 <h2> {{ donut.nameDonut }}</h2>
                 <h3 class="card__text__company">{{ donut.nameCompany }}</h3>
-                <h3 class="aantal">Aantal donuts: {{ donut.donutAmount }}</h3>
+                <h3 class="amount">Aantal donuts: {{ donut.donutAmount }}</h3>
+                <h3 class="date">Besteldatum: {{ donut.dateCreated }}</h3>
             </div>
             <div class="card__edit">
                 <a href="#/configurator">
@@ -108,7 +114,8 @@ h1 {
     /* z-index: -1; */
 }
 
-.aantal {
+.amount,
+.date {
     font-weight: 500;
 }
 

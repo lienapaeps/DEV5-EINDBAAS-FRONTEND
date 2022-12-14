@@ -19,7 +19,7 @@ function addDonut() {
         let topping = document.querySelector("input[name=topping]:checked").value;
         let logo = "https://lienapaeps.be/imgs/meta-image.png";
         let logoShape = document.querySelector("input[name=logo]:checked").value;
-        let imageUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.webstaurantstore.com%2Farticle%2F593%2Ftypes-of-donuts.html&psig=AOvVaw13YcZw5WFWikaTMKs5xKtO&ust=1671087828074000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDFiLXF-PsCFQAAAAAdAAAAABAJ";
+        let imageUrl = "https://vandemoortele.com/sites/default/files/styles/square_product/public/832d7012c5b0ce0e985fef4c1116ef95963631cf.jpg?itok=Y7hnKSUc";
         let donutAmount = document.querySelector("#donutAmount").value;
 
         let dataDonut = {
