@@ -35,7 +35,8 @@ import Button from '../components/Button.vue'
                 </div>
             </div>
             <label for="donutAmount">Aantal donuts</label>
-            <input style="width: 3rem" type="number" id="donutAmount" name="donutAmount" placeholder="20" required>
+            <input style="width: 3rem" type="number" id="donutAmount" name="donutAmount" placeholder="10" min="10"
+                required>
             <label for="remarks">Opmerkingen</label>
             <textarea name="remarks" id="remarks" cols="30" rows="10" placeholder="Opmerkingen"></textarea>
         </form>

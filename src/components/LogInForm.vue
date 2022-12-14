@@ -47,10 +47,10 @@ onMounted(() => {
 
 <template>
     <form class="form form__login" action="#">
+        <h3>Admin login</h3>
         <div class="alert hidden">
             Here is some feedback
         </div>
-        <h3>Admin login</h3>
         <div class="row">
             <label for="username">Gebruikersnaam</label>
             <input type="text" id="username" name="username">
@@ -62,10 +62,6 @@ onMounted(() => {
         <div class="row">
             <Button text="Log in" class="btn btn--strawberry btn--login" textclass="btn__text" />
         </div>
-
-        <p class="forgot-password">
-            <a href="#/changepassword">Wachtwoord veranderen</a>
-        </p>
     </form>
 </template>
 
