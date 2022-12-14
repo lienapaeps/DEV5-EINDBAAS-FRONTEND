@@ -72,8 +72,8 @@
             <input type="radio" name="logo" id="circle" value="circle">
             <label for="circle" class="logo logo--circle"></label>
 
-            <input type="radio" name="logo" id="oval" value="oval">
-            <label for="oval" class="logo logo--oval"></label>
+            <input type="radio" name="logo" id="ellipse" value="ellipse">
+            <label for="ellipse" class="logo logo--ellipse"></label>
         </div>
     </div>
 </template>
@@ -212,7 +212,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
     border-radius: 50%;
 }
 
-.logo--oval{
+.logo--ellipse{
     height: 50px;
     width: 80px;
     border: solid black 2px;
