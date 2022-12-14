@@ -1,4 +1,5 @@
 <script setup>// logica
+import Button from '../components/Button.vue'
 
 import { ref, reactive, onMounted } from 'vue'
 
@@ -24,8 +25,31 @@ function checkLogin() {
         })
 }
 
+// als card__delete is aangeklikt, dan wordt de card__warning getoond
+function showWarning() {
+
+    const button = document.querySelector(".deleted");
+
+    button.addEventListener("click", function () {
+        const warning = document.querySelector(".card__warning");
+        warning.classList.remove("hidden");
+    })
+}
+
+function hideWarning() {
+
+    const button = document.querySelector(".btn--strawberry");
+
+    button.addEventListener("click", function () {
+        const warning = document.querySelector(".card__warning");
+        warning.classList.add("hidden");
+    })
+}
+
 onMounted(() => {
     checkLogin();
+    showWarning();
+    hideWarning();
 });
 
 </script>
@@ -34,6 +58,12 @@ onMounted(() => {
     <h1>De <span class="title__color">Gallerij</span></h1>
     <div class="app">
         <div class="card" v-for="donut in donuts.donuts.donuts" :key="donut.id">
+            <div class="card__warning hidden">
+                <h3>Let op!</h3>
+                <p>Wil je deze donut verwijderen?</p>
+                <Button text="Behouden" class="btn btn--strawberry btn--login" textclass="btn__text" />
+                <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
+            </div>
             <div class="card__image">
                 <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
             </div>
@@ -43,10 +73,15 @@ onMounted(() => {
                 <h3 class="card__text__company">{{ donut.nameCompany }}</h3>
                 <h3 class="aantal">Aantal donuts: {{ donut.donutAmount }}</h3>
             </div>
-            <div class="card__delete">
-                <a href="">
-                    <img src="../../imgs/trash-regular.svg" alt="Trash icon">
+            <div class="card__edit">
+                <a href="#/configurator">
+                    <img src="../../imgs/pen-to-square-regular.svg" alt="Edit icon">
                 </a>
+            </div>
+            <div class="card__delete">
+                <button class="deleted">
+                    <img src="../../imgs/trash-regular.svg" alt="Trash icon">
+                </button>
             </div>
             <div class="card__status">
                 <form class="card__status__form" action="">
@@ -79,6 +114,18 @@ h1 {
 
 .aantal {
     font-weight: 500;
+}
+
+.card__warning {
+    position: absolute;
+    background-color: #ffffffd3;
+    border-radius: 1em;
+    top: 0em;
+    left: 0em;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 1;
 }
 
 .card {
@@ -122,9 +169,21 @@ h1 {
     margin-bottom: 0.5;
 }
 
-.card__delete {
+.deleted {
     background-color: var(--strawberry-pink);
-    width: 20%;
+    width: 15%;
+    text-align: center;
+    position: absolute;
+    top: 7em;
+    right: 0;
+    border: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.card__edit {
+    background-color: var(--strawberry-pink);
+    width: 15%;
     text-align: center;
     position: absolute;
     top: 2em;
@@ -133,13 +192,22 @@ h1 {
     border-bottom-left-radius: 8px;
 }
 
-.card__delete a {
+.deleted {
     display: block;
     padding: 1em 0;
 }
 
+.card__edit img {
+    width: 35%;
+}
+
 .card__delete img {
     width: 35%;
+}
+
+.card__edit a {
+    display: block;
+    padding: 1em 0;
 }
 
 .card__status {
@@ -200,11 +268,23 @@ select {
         width: 15%;
     }
 
+    .card__edit {
+        width: 15%;
+    }
+
     .card__delete a {
         padding: 1em 0;
     }
 
+    .card__edit a {
+        padding: 1em 0;
+    }
+
     .card__delete img {
+        width: 25%;
+    }
+
+    .card__edit img {
         width: 25%;
     }
 }
