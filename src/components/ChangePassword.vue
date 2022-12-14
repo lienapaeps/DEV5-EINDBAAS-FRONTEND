@@ -1,6 +1,12 @@
 <script setup>
 import Button from './Button.vue'
 import { onMounted } from 'vue'
+
+// enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
+if (localStorage.getItem("token") === null) {
+    window.location.href = "#/home";
+}
+
 function changePassword() {
     let btnChange = document.querySelector(".btn--change").addEventListener("click", function () {
         console.log("clicked");
@@ -11,7 +17,7 @@ function changePassword() {
         fetch("https://dev5-donuttello.onrender.com/api/v1/users/changePassword", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 username: username,
@@ -107,9 +113,8 @@ onMounted(() => {
 /* Desktop */
 @media (min-width: 992px) {
     .form__login {
-        margin-top: 1em;
+        margin-top: 3em;
         width: 20%;
-
     }
 }
 </style>
