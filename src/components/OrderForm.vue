@@ -12,6 +12,8 @@ import Button from '../components/Button.vue'
             <input type="email" id="email" name="email" placeholder="Email" required>
             <label for="companyName">Bedrijfsnaam</label>
             <input type="text" id="companyName" name="companyName" placeholder="Bedrijfsnaam" required>
+            <label for="donutAmount">Aantal donuts</label>
+            <input style="width: 3rem" type="number" id="donutAmount" name="donutAmount" placeholder="20" required>
         </form>
         <Button text="Bestel" class="btn btn--strawberry btn--order" textclass="btn__text" />
     </div>
