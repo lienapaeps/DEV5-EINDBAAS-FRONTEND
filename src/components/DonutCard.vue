@@ -34,6 +34,11 @@ function check(input) {
             <h3 class="card__text__company">Bedrijf</h3>
             <h3 class="aantal">Aantal donuts: 10</h3>
         </div>
+        <div class="card__edit">
+            <a href="#/configurator">
+                <img src="../../imgs/pen-to-square-regular.svg" alt="Edit icon">
+            </a>
+        </div>
         <div class="card__delete">
             <a href="">
                 <img src="../../imgs/trash-regular.svg" alt="Trash icon">
@@ -103,6 +108,17 @@ function check(input) {
     width: 20%;
     text-align: center;
     position: absolute;
+    top: 7em;
+    right: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.card__edit {
+    background-color: var(--strawberry-pink);
+    width: 20%;
+    text-align: center;
+    position: absolute;
     top: 2em;
     right: 0;
     border-top-left-radius: 8px;
@@ -116,6 +132,15 @@ function check(input) {
 
 .card__delete img {
     width: 35%;
+}
+
+.card__edit img{
+    width: 35%;
+}
+
+.card__edit a {
+    display: block;
+    padding: 1em 0;
 }
 
 .card__status {
@@ -161,11 +186,23 @@ select {
         width: 15%;
     }
 
+    .card__edit {
+        width: 15%;
+    }
+
     .card__delete a {
         padding: 1em 0;
     }
 
+    .card__edit a {
+        padding: 1em 0;
+    }
+
     .card__delete img {
+        width: 25%;
+    }
+
+    .card__edit img{
         width: 25%;
     }
 }
