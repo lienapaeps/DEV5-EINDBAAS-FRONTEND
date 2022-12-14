@@ -6,30 +6,40 @@ import Customization from '../components/Customization.vue';
 
 function addDonut() {
     let btn = document.querySelector(".btn--order").addEventListener("click", e => {
-        console.log("clicked");
-        // e.preventDefault();
-        let nameDonut = "Donut naam";
-        let nameCompany = document.querySelector("#companyName").value;
+        // console.log("clicked");
         let email = document.querySelector("#email").value;
+        let nameCompany = document.querySelector("#companyName").value;
+        let nameDonut = document.querySelector("#nameDonut").value;
+        let street = document.querySelector("#street").value;
+        let streetNumber = document.querySelector("#streetNumber").value;
+        let postalCode = document.querySelector("#postalCode").value;
+        let city = document.querySelector("#city").value;
+        let remarks = document.querySelector("#remarks").value;
         let icing = document.querySelector("input[name=icing]:checked").value;
         let topping = document.querySelector("input[name=topping]:checked").value;
         let logo = "https://lienapaeps.be/imgs/meta-image.png";
         let logoShape = document.querySelector("input[name=logo]:checked").value;
         let imageUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.webstaurantstore.com%2Farticle%2F593%2Ftypes-of-donuts.html&psig=AOvVaw13YcZw5WFWikaTMKs5xKtO&ust=1671087828074000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDFiLXF-PsCFQAAAAAdAAAAABAJ";
-
+        let donutAmount = document.querySelector("#donutAmount").value;
 
         let dataDonut = {
             email,
             nameCompany,
             nameDonut,
+            street,
+            streetNumber,
+            postalCode,
+            city,
+            remarks,
             icing,
             topping,
             logo,
             logoShape,
-            imageUrl
+            imageUrl,
+            donutAmount
         }
 
-        console.log(dataDonut);
+        // console.log(dataDonut);
 
         fetch("https://dev5-donuttello.onrender.com/api/v1/donuts", {
             method: "POST",

@@ -63,8 +63,8 @@
     </div>
     <div class="options">
         <h2>Logo</h2>
-        <label for="company_logo">Kies je logo!</label> <br> <br>
-        <input type="file" id="company_logo" name="company_logo" accept="image/png, image/jpeg, image/jpg">
+        <label for="company_logo"></label>
+        <input type="file" id="company_logo" name="company_logo" accept="image/png, image/jpeg, image/jpg"><br><br>
         <div class="options__container">
 
             <input type="radio" name="logo" id="square" value="square">

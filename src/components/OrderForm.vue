@@ -8,6 +8,8 @@ import Button from '../components/Button.vue'
     <div class="form">
         <h2>Bestel hier</h2>
         <form class="form__order">
+            <label for="nameDonut">Donut naam</label>
+            <input type="text" id="nameDonut" name="nameDonut" placeholder="Donut naam" required>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Email" required>
             <label for="companyName">Bedrijfsnaam</label>
