@@ -1,5 +1,5 @@
 <script setup>
-    
+
 </script>
 
 <template>
@@ -14,7 +14,7 @@
 
             <input type="radio" id="pistache" name="icing" value="rgb(137, 167, 97)" class="icinginput">
             <label for="pistache" class="icing icing--pistache" data-color="rgb(137, 167, 97)"></label>
-            
+
             <input type="radio" id="white" name="icing" value="rgb(190, 190, 195)" class="icinginput">
             <label for="white" class="icing icing--white" data-color="rgb(237, 239, 244)"></label>
 
@@ -38,23 +38,27 @@
 
             <input type="radio" id="speculoos" name="icing" value="rgb(193, 132, 88)" class="icinginput">
             <label for="speculoos" class="icing icing--speculoos" data-color="rgb(197, 136, 91)"></label>
-            
+
         </div>
     </div>
     <div class="options">
         <h2>Topping</h2>
         <div class="options__container topping__container border__select">
             <input type="checkbox" name="topping" id="sprinkles" value="sprinkles">
-            <label for="sprinkles" class="topping topping--sprinkles"><img src="../../imgs/sprinkel_topping.jpg" alt="sprinkles"></label>
+            <label for="sprinkles" class="topping topping--sprinkles" data-topping="sprinkles"><img
+                    src="../../imgs/sprinkel_topping.jpg" alt="sprinkles"></label>
 
             <input type="checkbox" name="topping" id="crumbles" value="crumbles">
-            <label for="crumbles" class="topping topping--crumbles"><img src="../../imgs/oreo_topping.jpg" alt="oreo"></label>
+            <label for="crumbles" class="topping topping--crumbles" data-topping="crumbles"><img
+                    src="../../imgs/oreo_topping.jpg" alt="oreo"></label>
 
             <input type="checkbox" name="topping" id="marshmallow" value="marshmallow">
-            <label for="marshmallow" class="topping topping--marshmallow"><img src="../../imgs/marshmallow_topping.jpg" alt="marshmallow"></label>
+            <label for="marshmallow" class="topping topping--marshmallow" data-topping="marshmallows"><img
+                    src="../../imgs/marshmallow_topping.jpg" alt="marshmallow"></label>
 
             <input type="checkbox" name="topping" id="malteser" value="malteser">
-            <label for="malteser" class="topping topping--malteser"><img src="../../imgs/malteser_topping.jpg" alt="malteser"></label>
+            <label for="malteser" class="topping topping--malteser" data-topping="maltesers"><img
+                    src="../../imgs/malteser_topping.jpg" alt="malteser"></label>
         </div>
     </div>
     <div class="options">
@@ -79,24 +83,24 @@
 </template>
 
 <style scoped>
-input[type="radio"]{
+input[type="radio"] {
     visibility: hidden;
     width: 0rem;
     margin: 0;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     visibility: hidden;
     width: 0rem;
     margin: 0;
 }
 
-input[type="file"]{
+input[type="file"] {
     font-family: 'Dosis', sans-serif;
     border: 2px solid var(-strawberry-pink);
 }
 
-input[type="file"]::-webkit-file-upload-button{
+input[type="file"]::-webkit-file-upload-button {
     border: 2px solid var(--strawberry-pink);
     background-color: var(--strawberry-pink);
     border-radius: 1.5rem;
@@ -108,7 +112,7 @@ input[type="file"]::-webkit-file-upload-button{
     color: var(--warm-lemon);
 }
 
-input[type="file"]::-webkit-file-upload-button:hover{
+input[type="file"]::-webkit-file-upload-button:hover {
     border: 2px solid var(--pink);
     background-color: var(--pink);
     border-radius: 1.5rem;
@@ -121,35 +125,40 @@ input[type="file"]::-webkit-file-upload-button:hover{
     cursor: pointer;
 }
 
-.options__container{
+label {
+    cursor: pointer;
+}
+
+.options__container {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
     padding-bottom: 5px;
-    overflow-x:scroll;
+    overflow-x: scroll;
     overflow-y: hidden;
 }
 
-.border__select input[type="radio"]+label{
+.border__select input[type="radio"]+label {
     border: 3px solid transparent;
     border-radius: 50%;
 }
 
-.border__select input[type="radio"]:checked+label{
+.border__select input[type="radio"]:checked+label {
     border: 3px solid var(--strawberry-pink);
 }
 
-.border__select input[type="checkbox"]+label{
+.border__select input[type="checkbox"]+label {
     border: 3px solid transparent;
     border-radius: 50%;
 }
 
-.border__select input[type="checkbox"]:checked+label{
+.border__select input[type="checkbox"]:checked+label {
     border: 3px solid var(--strawberry-pink);
 }
 
-.icing, .topping {
+.icing,
+.topping {
     display: block;
     height: 1.5rem;
     width: 1.5rem;
@@ -161,65 +170,65 @@ input[type="file"]::-webkit-file-upload-button:hover{
 .options__container::-webkit-scrollbar {
     height: 10px;
     margin: 5px 5px;
-    background:rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
     border-radius: 15px;
 }
 
 .options__container::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 0px rgb(203, 26, 26); 
+    -webkit-box-shadow: inset 0 0 0px rgb(203, 26, 26);
     background: transparent;
     color: transparent;
 }
+
 .options__container::-webkit-scrollbar-thumb {
     border-radius: 15px;
-    background:var(--strawberry-pink);
-} 
+    background: var(--strawberry-pink);
+}
 
 .topping {
     position: relative;
 }
 
-.topping img{
+.topping img {
     height: 2.55rem;
     width: 2.55rem;
     border-radius: 50%;
     position: absolute;
     top: -0.5px;
     left: -0.01px;
-
 }
 
-.logo{
+.logo {
     display: block;
 }
 
-.logo--square{
+.logo--square {
     height: 50px;
     width: 50px;
     border: solid black 2px;
 }
 
-.logo--rectangle{
+.logo--rectangle {
     height: 50px;
     width: 80px;
     border: solid black 2px;
 }
 
-.logo--circle{
+.logo--circle {
     height: 50px;
     width: 50px;
     border: solid black 2px;
     border-radius: 50%;
 }
 
-.logo--ellipse{
+.logo--ellipse {
     height: 50px;
     width: 80px;
     border: solid black 2px;
     border-radius: 50%;
 }
 
-#company_logo{
+#company_logo {
     padding-bottom: 20px;
 }
 
@@ -238,8 +247,7 @@ input[type="file"]::-webkit-file-upload-button:hover{
         margin: 0;
         padding: 0;
     }
-}    
-
+}
 </style>
 
 

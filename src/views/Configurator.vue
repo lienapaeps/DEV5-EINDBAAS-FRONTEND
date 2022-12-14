@@ -1,41 +1,88 @@
 <script setup>
-    import Donut from '../components/Donut.vue'
-    import OrderForm from '../components/OrderForm.vue'
-    import { onMounted } from 'vue';
-    import Customization from '../components/Customization.vue';
+import Donut from '../components/Donut.vue'
+import OrderForm from '../components/OrderForm.vue'
+import { onMounted } from 'vue';
+import Customization from '../components/Customization.vue';
 
-   onMounted( () => {
-        let colorLabels = document.querySelectorAll(".icing");
-        colorLabels.forEach((color, index)=>{
-            let colorValue = color.dataset.color;
-            color.style.backgroundColor = colorValue;
+function addDonut() {
+    let btn = document.querySelector(".btn--order").addEventListener("click", e => {
+        console.log("clicked");
+        // e.preventDefault();
+        let nameDonut = "Donut naam";
+        let nameCompany = document.querySelector("#companyName").value;
+        let email = document.querySelector("#email").value;
+        let icing = document.querySelector("input[name=icing]:checked").value;
+        let topping = document.querySelector("input[name=topping]:checked").value;
+        let logo = "https://lienapaeps.be/imgs/meta-image.png";
+        let logoShape = document.querySelector("input[name=logo]:checked").value;
+        let imageUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.webstaurantstore.com%2Farticle%2F593%2Ftypes-of-donuts.html&psig=AOvVaw13YcZw5WFWikaTMKs5xKtO&ust=1671087828074000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDFiLXF-PsCFQAAAAAdAAAAABAJ";
+
+        let dataDonut = {
+            email,
+            nameCompany,
+            nameDonut,
+            icing,
+            topping,
+            logo,
+            logoShape,
+            imageUrl
+        }
+
+        console.log(dataDonut);
+
+        fetch("https://dev5-donuttello.onrender.com/api/v1/donuts", {
+            method: "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dataDonut)
         })
+            .then(res => {
+                return res.json();
+            }).then(json => {
+                console.log(json);
+                window.location.href = "#/orderok";
+            }).catch(err => {
+                console.log(err);
+            })
     })
+}
+
+onMounted(() => {
+    let colorLabels = document.querySelectorAll(".icing");
+    colorLabels.forEach((color, index) => {
+        let colorValue = color.dataset.color;
+        color.style.backgroundColor = colorValue;
+    })
+
+    addDonut();
+})
 </script>
 
 <template>
+
     <body>
         <h1>naam donut</h1>
         <div class="header">
             <div class="donut">
-                <Donut/>
+                <Donut />
             </div>
             <div class="customization">
-                <Customization/>
+                <Customization />
             </div>
         </div>
         <div class="order">
-            <OrderForm/>
+            <OrderForm />
         </div>
     </body>
 </template>
 
 <style scoped>
-body{
+body {
     margin: 10px;
 }
 
-h1{
+h1 {
     text-align: center;
     text-transform: uppercase;
 }
@@ -60,10 +107,11 @@ h1{
 }
 
 @media screen and (min-width: 768px) {
-    .header{
+    .header {
         display: flex;
         flex-direction: row;
     }
+
     .donut {
         width: 50vw;
         height: 50vh;
@@ -79,6 +127,7 @@ h1{
         margin: 30px;
         padding: 0;
     }
+
     .customization {
         width: 40vw;
     }

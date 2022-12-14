@@ -10,10 +10,10 @@ import Button from '../components/Button.vue'
         <form class="form__order">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Email" required>
-            <label for="name">Bedrijfsnaam</label>
-            <input type="text" id="name" name="name" placeholder="Naam" required>
+            <label for="companyName">Bedrijfsnaam</label>
+            <input type="text" id="companyName" name="companyName" placeholder="Bedrijfsnaam" required>
         </form>
-        <a href="#/orderok"><Button text="Bestel" class="btn btn--strawberry" textclass="btn__text"/></a>
+        <Button text="Bestel" class="btn btn--strawberry btn--order" textclass="btn__text" />
     </div>
 </template>
 
