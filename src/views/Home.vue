@@ -80,8 +80,8 @@ a {
 
 .homepage__bgimg{
     margin: 0%;
-    padding: 8%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("../../imgs/backgroundHome.jpg");
+    padding: 8.5%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("../../imgs/backgroundHome.jpg");
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
