@@ -32,9 +32,10 @@ function check(input) {
             <span class="card__highlight">Donut</span>
             <h2>Donut naam</h2>
             <h3 class="card__text__company">Bedrijf</h3>
+            <h3 class="aantal">Aantal donuts: 10</h3>
         </div>
         <div class="card__delete">
-            <a href="#">
+            <a href="">
                 <img src="../../imgs/trash-regular.svg" alt="Trash icon">
             </a>
         </div>
@@ -52,6 +53,10 @@ function check(input) {
 </template>
 
 <style scoped>
+.aantal {
+    font-weight: 500;
+}
+
 .card {
     box-shadow: 4px 4px 9px 4px rgba(17, 17, 17, 0.2);
     margin-bottom: 2.5em;
