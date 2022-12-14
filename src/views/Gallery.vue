@@ -42,13 +42,27 @@ function hideWarning() {
     })
 }
 
-// status van donut updaten
+const changeStatus = () => {
+    const select = document.getElementById("status");
 
+    select.addEventListener("change", e => {
+        console.log(e.target.value);
+        if (select === "opgeslagen") {
+            console.log("Opgeslagen");
+        } else if (select === "productie") {
+            console.log("In productie");
+        } else if (select === "klaar") {
+            console.log("Klaar");
+        }
+    })
+}
 
 onMounted(() => {
     checkLogin();
     // showWarning();
     // hideWarning();
+    // changeStatus();
+
 });
 
 </script>
@@ -73,7 +87,7 @@ onMounted(() => {
                 <h2> {{ donut.nameDonut }}</h2>
                 <h3 class="card__text__company">{{ donut.nameCompany }}</h3>
                 <h3 class="amount">Aantal donuts: {{ donut.donutAmount }}</h3>
-                <h3 class="date">Besteldatum: {{ donut.dateCreated }}</h3>
+                <h3 class="date">Besteldatum: {{ donut.createdAt }}</h3>
             </div>
             <div class="card__edit">
                 <a href="#/configurator">
@@ -86,14 +100,15 @@ onMounted(() => {
                 </button>
             </div>
             <div class="card__status">
-                <form class="card__status__form" action="">
+                <p class="status__text">Status: <b>{{ donut.status }}</b></p>
+                <!-- <form class="card__status__form" action="">
                     <label for="status">Status:</label>
-                    <select name="status" id="status">
-                        <option value="opgeslagen">Opgeslagen</option>
+                    <select name="status" id="status" @change="changeStatus()">
+                        <option value="opgeslagen" selected>Opgeslagen</option>
                         <option value="productie">In productie</option>
                         <option value="klaar">Klaar</option>
                     </select>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>
@@ -159,6 +174,7 @@ h1 {
 
 .card__text {
     padding: 1em;
+    padding-bottom: .5em;
 }
 
 .card__text h2 {
