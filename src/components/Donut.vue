@@ -179,7 +179,7 @@
             });
 
             // ellipsecard
-            const ellipseGeometry = new THREE.CylinderGeometry(1.5, 1.5, .2, 32);
+            const ellipseGeometry = new THREE.CylinderGeometry(2, 2, .2, 32);
             // const ellipseGeometry = new THREE.EllipseCurve(
             //     0,  0,            // ax, aY
             //     1.5, 1.5,           // xRadius, yRadius
@@ -196,13 +196,13 @@
             const ellipse = new THREE.Mesh(ellipseGeometry, ellipseMaterial);
             ellipse.name = "ellipse";
             if (window.innerWidth < 768) {
-                ellipse.scale.set(.8, 1, .8);
                 ellipse.position.set(0, 6, 3.3)
             } else {
                 ellipse.position.set(0, 2, 4.5)
             }
             ellipse.rotation.x = 1.65;
-            ellipse.rotation.y = -.03;
+            ellipse.rotation.y = 1.57;
+            ellipse.scale.set(.5, 1, .8);
 
             const checkboxellipse = document.querySelector(".logo--ellipse");
             checkboxellipse.addEventListener("click", () => {
