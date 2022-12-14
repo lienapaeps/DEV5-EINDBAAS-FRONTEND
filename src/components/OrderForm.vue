@@ -20,7 +20,12 @@ import Button from '../components/Button.vue'
 
 <style scoped>
 .form {
-    padding-top: 3rem;
+    margin: 3rem 0;
+    min-width: 50%;
+    padding: 2rem 3rem;
+    background: rgba(250, 232, 243, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
 }
 
 .form__order {
