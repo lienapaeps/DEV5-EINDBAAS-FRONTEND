@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 import LogIn from '../views/LogIn.vue';
 import Home from '../views/Home.vue'
@@ -19,6 +19,19 @@ const routes = {
     '/changepassword': ChangePassword
 }
 
+const loggedIn = () => {
+    if (localStorage.getItem('token')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = "#/home";
+}
+
 const currentPath = ref(window.location.hash)
 
 window.addEventListener('hashchange', () => {
@@ -27,6 +40,11 @@ window.addEventListener('hashchange', () => {
 
 const currentView = computed(() => {
     return routes[currentPath.value.slice(1) || '/'] || Home
+})
+
+onMounted(() => {
+    loggedIn();
+    // logout();
 })
 </script>
 
@@ -38,10 +56,18 @@ const currentView = computed(() => {
         <label for="toggle">&#8801</label>
         <input type="checkbox" id="toggle" />
         <ul class="nav__menu">
-            <li><a href="#/">Home</a></li>
-            <li><a href="#/configurator">Configurator</a></li>
-            <!-- <li><a href="#/gallery">Gallerij</a></li> -->
-            <!-- <a href="#/login">Log in</a> -->
+            <!-- links for admin -->
+            <template v-if="loggedIn()">
+                <li><a href="#/gallery">Gallerij</a></li>
+                <li><a href="#/changepassword">Instellingen</a></li>
+                <li><a href="#/home" @click="logout()">Uitloggen</a></li>
+            </template>
+            <!-- links for clients -->
+            <template v-else>
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/configurator">Configurator</a></li>
+                <!-- <a href="#/login">Log in</a> -->
+            </template>
         </ul>
     </nav>
     <component :is="currentView" />
@@ -138,7 +164,7 @@ label {
     }
 
     .nav__menu {
-        margin-left: 70%;
+        margin-left: 60%;
         width: 40%;
     }
 
