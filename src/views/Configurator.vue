@@ -49,7 +49,7 @@ h1{
 }
 
 .customization {
-    max-width: 50%;
+    max-width: 100%;
 }
 
 .order {
@@ -71,6 +71,10 @@ h1{
         top: 5.5rem;
         overflow: hidden;
     }
+    .customization {
+    max-width: 50%;
+    }
+
 }
 
 /* Desktop */

@@ -164,7 +164,7 @@
                 circle.position.set(0, 2, 4.5)
             }
             circle.rotation.x = 1.65;
-            circle.rotation.y = -.03;
+            circle.rotation.y = 1.57;
 
             const checkboxcircle = document.querySelector(".logo--circle");
             checkboxcircle.addEventListener("click", () => {
