@@ -61,6 +61,13 @@ h1{
         left: 0;
         top: 5.5rem;
         overflow: hidden;
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    body {
+        margin: 30px;
+        padding: 0;
     }
     .customization {
         width: 40vw;

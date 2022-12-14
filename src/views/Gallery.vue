@@ -7,7 +7,7 @@ import { ref, onMounted } from 'vue'
 
 // enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
 function checkLogin() {
-    fetch("http://localhost:3000/api/v1/donuts", {
+    fetch("https://dev5-donuttello.onrender.com/api/v1/donuts", {
         "headers": {
             "Authorization": "Bearer " + localStorage.getItem("token")
         }

@@ -10,7 +10,7 @@ function login() {
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
 
-        fetch("http://localhost:3000/users/login", {
+        fetch("https://dev5-donuttello.onrender.com/api/v1/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -46,10 +46,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <form action="#">
+    <form class="form form__login" action="#">
         <div class="alert hidden">
             Here is some feedback
         </div>
+        <h3>Admin login</h3>
         <div class="row">
             <label for="username">Username</label>
             <input type="text" id="username" name="username">
@@ -61,6 +62,10 @@ onMounted(() => {
         <div class="row">
             <Button text="Log in" class="btn btn--strawberry btn--login" textclass="btn__text" />
         </div>
+
+        <p class="forgot-password">
+            <a href="#/changepassword">Wachtwoord vergeten?</a>
+        </p>
     </form>
 </template>
 
