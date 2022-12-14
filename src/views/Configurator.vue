@@ -62,7 +62,7 @@ onMounted(() => {
 <template>
 
     <body>
-        <h1>naam donut</h1>
+        <h1>Configurator</h1>
         <div class="header">
             <div class="donut">
                 <Donut />
