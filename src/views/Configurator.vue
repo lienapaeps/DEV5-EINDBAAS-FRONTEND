@@ -97,6 +97,7 @@ h1 {
 
 .customization {
     max-width: 100%;
+    padding: 1rem;
 }
 
 .order {
@@ -113,14 +114,14 @@ h1 {
     }
 
     .donut {
-        width: 50vw;
+        width: 47vw;
         height: 50vh;
         left: 0;
         top: 5.5rem;
         overflow: hidden;
     }
     .customization {
-    max-width: 50%;
+    max-width: 40%;
     }
 
 }
