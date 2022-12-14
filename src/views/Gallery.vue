@@ -48,7 +48,7 @@ h1 {
 .app {
     margin: 2em;
     position: relative;
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 /* Tablet */

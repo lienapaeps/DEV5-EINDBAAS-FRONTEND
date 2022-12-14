@@ -64,7 +64,7 @@ onMounted(() => {
         </div>
 
         <p class="forgot-password">
-            <a href="#/changepassword">Wachtwoord vergeten?</a>
+            <a href="#/changepassword">Wachtwoord veranderen</a>
         </p>
     </form>
 </template>
