@@ -52,7 +52,7 @@ function addDonut() {
                 return res.json();
             }).then(json => {
                 console.log(json);
-                window.location.href = "#/orderok";
+                window.location.href = "/order";
             }).catch(err => {
                 console.log(err);
             })

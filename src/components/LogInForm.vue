@@ -26,7 +26,7 @@ function login() {
                     let token = json.data.token;
                     localStorage.setItem("token", token);
 
-                    window.location.href = "#/gallery";
+                    window.location.href = "/gallerij";
                 } else {
                     let feedback = document.querySelector(".alert");
                     feedback.textContent = "Gebruikersnaam of wachtwoord zijn fout";

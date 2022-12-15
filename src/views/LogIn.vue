@@ -1,8 +1,6 @@
 <script setup>// logica
 import LogInForm from '../components/LogInForm.vue'
 
-
-
 </script>
 
 <template>

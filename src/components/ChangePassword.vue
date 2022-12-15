@@ -14,7 +14,7 @@ function checkLogin() {
             // console.log(json);
         }).catch(err => {
             console.log("Only admin can access this page");
-            window.location.href = "#/home";
+            window.location.href = "/";
         })
 }
 
@@ -40,7 +40,7 @@ function changePassword() {
             .then(response => response.json())
             .then((json) => {
                 if (json.status === "success") {
-                    window.location.href = "#/login";
+                    window.location.href = "/login";
                 } else {
                     let feedback = document.querySelector(".alert");
                     feedback.textContent = "Gebruikersnaam of wachtwoord zijn fout";

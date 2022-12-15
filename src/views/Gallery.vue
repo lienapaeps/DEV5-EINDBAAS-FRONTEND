@@ -1,30 +1,15 @@
 <script setup>// logica
 import Button from '../components/Button.vue'
-
 import { ref, reactive, onMounted } from 'vue'
+import router from '../router/router';
+
+if (!localStorage.getItem('token')) {
+    router.push('/')
+}
 
 let donuts = reactive({
     donuts: []
 });
-
-// enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
-function checkLogin() {
-    fetch("https://dev5-donuttello.onrender.com/api/v1/donuts", {
-        "method": "GET",
-        "headers": {
-            "Authorization": "Bearer " + localStorage.getItem("token")
-        }
-    }).then(res => res.json())
-        .then(json => {
-            // console.log(json.data.donuts);
-            donuts.donuts = json.data;
-
-            // console.log(donuts);
-        }).catch(err => {
-            console.log("Only admin can access this page");
-            window.location.href = "#/home";
-        })
-}
 
 // als card__delete is aangeklikt, dan wordt de card__warning getoond
 function showWarning() {
@@ -44,18 +29,7 @@ function hideWarning() {
 }
 
 const changeStatus = () => {
-    const select = document.getElementById("status");
 
-    select.addEventListener("change", e => {
-        console.log(e.target.value);
-        if (select === "opgeslagen") {
-            console.log("Opgeslagen");
-        } else if (select === "productie") {
-            console.log("In productie");
-        } else if (select === "klaar") {
-            console.log("Klaar");
-        }
-    })
 }
 
 const deleteDonut = (id) => {
@@ -78,9 +52,6 @@ const deleteDonut = (id) => {
         // donut met deze id verwijderen uit de array
         // donuts.donuts.donuts.splice(0, 1);
 
-        // ENKEL donut met deze id verwijderen uit de DOM
-        // window.location.reload();
-
         // na 3 seconden verdwijnt het succes bericht
         // setTimeout(() => {
         //     feedback.classList.add("hidden");
@@ -89,7 +60,26 @@ const deleteDonut = (id) => {
 }
 
 onMounted(() => {
-    checkLogin();
+    // enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
+    if (localStorage.getItem("token")) {
+        fetch('https://dev5-donuttello.onrender.com/api/v1/donuts', {
+            'method': 'GET',
+            'headers': {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }).then(result => {
+            return result.json();
+        }).then(json => {
+            console.log(json);
+            // console.log(json);
+            donuts.donuts = json.data;
+        }).catch(err => {
+            console.log(err);
+            console.log("Only admin can access this page");
+            // window.location.href = "/";
+        });
+    }
+
     // showWarning();
     // hideWarning();
     // changeStatus();
@@ -136,13 +126,13 @@ onMounted(() => {
                 <div class="card__status">
                     <p class="status__text">Status: <b>{{ donut.status }}</b></p>
                     <!-- <form class="card__status__form" action="">
-                    <label for="status">Status:</label>
-                    <select name="status" id="status" @change="changeStatus()">
-                        <option value="opgeslagen" selected>Opgeslagen</option>
-                        <option value="productie">In productie</option>
-                        <option value="klaar">Klaar</option>
-                    </select>
-                </form> -->
+                        <label for="status">Status:</label>
+                        <select name="status" id="status">
+                            <option value="opgeslagen" selected>{{ donut.status }}</option>
+                            <option value="productie">In productie</option>
+                            <option value="klaar">Klaar</option>
+                        </select>
+                    </form> -->
                 </div>
             </div>
         </div>

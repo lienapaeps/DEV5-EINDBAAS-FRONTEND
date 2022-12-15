@@ -1,39 +1,9 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-
-import LogIn from '../views/LogIn.vue';
-import Home from '../views/Home.vue'
-import Gallery from '../views/Gallery.vue'
-import Configurator from '../views/Configurator.vue'
-import OrderOk from '../views/OrderOk.vue'
-import ChangePassword from './ChangePassword.vue';
-import DonutDetails from '../views/DonutDetails.vue';
-
-// routing with dynamc components
-// https://vuejs.org/guide/scaling-up/routing.html#simple-routing-from-scratch
-const routes = {
-    '/home': Home,
-    '/login': LogIn,
-    '/gallery': Gallery,
-    '/configurator': Configurator,
-    '/orderok': OrderOk,
-    '/changepassword': ChangePassword,
-    '/details/:id': DonutDetails
-}
-
-const currentPath = ref(window.location.hash)
-
-window.addEventListener('hashchange', () => {
-    currentPath.value = window.location.hash
-})
-
-const currentView = computed(() => {
-    return routes[currentPath.value.slice(1) || '/'] || Home
-})
+import { onMounted } from 'vue'
 
 const logOut = () => {
     localStorage.removeItem("token");
-    window.location.href = "#/home";
+    window.location.href = "/";
 }
 
 const loggedIn = () => {
@@ -46,7 +16,6 @@ const loggedIn = () => {
 
 onMounted(() => {
     loggedIn();
-    logOut();
 })
 
 </script>
@@ -54,23 +23,24 @@ onMounted(() => {
 <template>
     <nav>
         <div class="nav__logo">
-            <img src="../../imgs/donuttello-logo.png" alt="Logo">
+            <router-link exact to="/"><img src="../../imgs/donuttello-logo.png" alt="logo"></router-link>
         </div>
         <label for="toggle">&#8801</label>
         <input type="checkbox" id="toggle" />
-        <ul class="nav__menu">
+        <div class="nav__menu">
             <!-- if user logged in  -->
             <template v-if="loggedIn()">
-                <li><a href="#/gallery">Gallerij</a></li>
-                <li><a href="#/changepassword">Instellingen</a></li>
-                <li><a href="" @click="logOut()">Uitloggen</a></li>
+                <router-link exact to="/gallerij">Gallerij</router-link>
+                <router-link exact to="/instellingen">Instellingen</router-link>
+                <router-link @click="logOut()" exact to="/">Uitloggen</router-link>
             </template>
             <!-- if user not logged in  -->
             <template v-else>
-                <li><a href="#/">Home</a></li>
-                <li><a href="#/configurator">Configurator</a></li>
+                <router-link exact to="/">Home</router-link>
+                <router-link exact to="/configurator">Configurator</router-link>
+                <router-link exact to="/login">Log in</router-link>
             </template>
-        </ul>
+        </div>
     </nav>
     <component :is="currentView" />
 </template>
@@ -86,7 +56,6 @@ nav {
     width: 35%;
     top: .5em;
     left: 1em;
-    /* position: absolute; */
 }
 
 .nav__menu li {
@@ -137,6 +106,7 @@ label {
     text-transform: uppercase;
     text-decoration: none;
     color: white;
+    margin: 0 1em;
 }
 
 /* Tablet */
@@ -151,23 +121,25 @@ label {
 
     .nav__menu {
         display: flex;
-        top: 1rem;
+        top: 2rem;
         padding: 0;
-        width: 60%;
-        margin: 0;
-        margin-left: 50%;
+        margin-left: 45%;
     }
 }
 
 /* Desktop */
 @media (min-width: 992px) {
     .nav__logo {
-        width: 60%;
+        margin-left: 8em;
+        padding-top: 1em;
+    }
+
+    .nav__logo img {
+        width: 10%;
     }
 
     .nav__menu {
-        margin-left: 60%;
-        width: 40%;
+        margin-left: 70%;
     }
 
     .nav__menu a {
