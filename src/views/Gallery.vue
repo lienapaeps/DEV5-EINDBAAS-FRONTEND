@@ -18,6 +18,7 @@ function checkLogin() {
         .then(json => {
             // console.log(json.data.donuts);
             donuts.donuts = json.data;
+
             // console.log(donuts);
         }).catch(err => {
             console.log("Only admin can access this page");
@@ -57,51 +58,84 @@ const changeStatus = () => {
     })
 }
 
+const deleteDonut = (id) => {
+    if (localStorage.getItem("token")) {
+        fetch("https://dev5-donuttello.onrender.com/api/v1/donuts/" + id, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("token"),
+            }
+        }).then(res => res.json())
+        console.log("Donut verwijderd");
+        // succes bericht tonen
+        let feedback = document.querySelector(".alert");
+        feedback.textContent = "Donut is succesvol verwijderd!";
+        feedback.classList.remove("hidden");
+        feedback.style.backgroundColor = "#d4edda";
+        feedback.style.color = "#2e6a3b";
+
+        // donut met deze id verwijderen uit de array
+        // donuts.donuts.donuts.splice(0, 1);
+
+        // ENKEL donut met deze id verwijderen uit de DOM
+        // window.location.reload();
+
+        // na 3 seconden verdwijnt het succes bericht
+        // setTimeout(() => {
+        //     feedback.classList.add("hidden");
+        // }, 3000);
+    }
+}
+
 onMounted(() => {
     checkLogin();
     // showWarning();
     // hideWarning();
     // changeStatus();
-
 });
 
 </script>
 
 <template>
     <h1>De <span class="title__color">Gallerij</span></h1>
+    <div class="alert hidden">
+        Here is some feedback
+    </div>
     <div class="app">
         <div class="card" v-for="donut in donuts.donuts.donuts" :key="donut.id">
-            <div class="card__warning hidden">
-                <h3>Let op!</h3>
-                <p>Wil je deze donut verwijderen?</p>
-                <Button text="Behouden" class="btn btn--strawberry btn--login" textclass="btn__text" />
-                <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
-            </div>
-            <div class="card__image">
-                <a v-bind:href="'#/details/' + donut._id">
-                    <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
-                </a>
-            </div>
-            <div class="card__text">
-                <span class="card__highlight">Donut</span>
-                <h2> {{ donut.nameDonut }}</h2>
-                <h3 class="card__text__company">{{ donut.nameCompany }}</h3>
-                <h3 class="amount">Aantal donuts: {{ donut.donutAmount }}</h3>
-                <h3 class="date">Besteldatum: {{ donut.createdAt }}</h3>
-            </div>
-            <div class="card__edit">
-                <a href="#/configurator">
-                    <img src="../../imgs/pen-to-square-regular.svg" alt="Edit icon">
-                </a>
-            </div>
-            <div class="card__delete">
-                <button class="deleted">
-                    <img src="../../imgs/trash-regular.svg" alt="Trash icon">
-                </button>
-            </div>
-            <div class="card__status">
-                <p class="status__text">Status: <b>{{ donut.status }}</b></p>
-                <!-- <form class="card__status__form" action="">
+            <div class="donut-card">
+                <div class="card__warning hidden">
+                    <h3>Let op!</h3>
+                    <p>Wil je deze donut verwijderen?</p>
+                    <Button text="Behouden" class="btn btn--strawberry btn--login" textclass="btn__text" />
+                    <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
+                </div>
+                <div class="card__image">
+                    <a v-bind:href="'#/details/' + donut._id">
+                        <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
+                    </a>
+                </div>
+                <div class="card__text">
+                    <span class="card__highlight">Donut</span>
+                    <h2> {{ donut.nameDonut }}</h2>
+                    <h3 class="card__text__company">{{ donut.nameCompany }}</h3>
+                    <h3 class="amount">Aantal donuts: {{ donut.donutAmount }}</h3>
+                    <h3 class="date">Besteldatum: {{ donut.createdAt }}</h3>
+                </div>
+                <div class="card__edit">
+                    <a href="#/configurator">
+                        <img src="../../imgs/pen-to-square-regular.svg" alt="Edit icon">
+                    </a>
+                </div>
+                <div class="card__delete">
+                    <button class="deleted" v-on:click="deleteDonut(donut._id)">
+                        <img src="../../imgs/trash-regular.svg" alt="Trash icon">
+                    </button>
+                </div>
+                <div class="card__status">
+                    <p class="status__text">Status: <b>{{ donut.status }}</b></p>
+                    <!-- <form class="card__status__form" action="">
                     <label for="status">Status:</label>
                     <select name="status" id="status" @change="changeStatus()">
                         <option value="opgeslagen" selected>Opgeslagen</option>
@@ -109,12 +143,22 @@ onMounted(() => {
                         <option value="klaar">Klaar</option>
                     </select>
                 </form> -->
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+/* alert */
+.alert {
+    margin: 3em;
+}
+
+.deleted {
+    cursor: pointer;
+}
+
 h1 {
     margin: 2em 1em 1.5em 1.5em;
 }
