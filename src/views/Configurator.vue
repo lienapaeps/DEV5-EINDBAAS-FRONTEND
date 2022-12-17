@@ -1,6 +1,8 @@
 <script setup>
 import Donut from '../components/Donut.vue'
 import OrderForm from '../components/OrderForm.vue'
+import router from '../router/router';
+
 import { onMounted } from 'vue';
 import Customization from '../components/Customization.vue';
 
@@ -52,7 +54,7 @@ function addDonut() {
                 return res.json();
             }).then(json => {
                 console.log(json);
-                window.location.href = "/order";
+                router.push('/order')
             }).catch(err => {
                 console.log(err);
             })

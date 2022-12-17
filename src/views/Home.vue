@@ -27,9 +27,9 @@ import Button from '../components/Button.vue'
             </p>
         </div>
         <div class="buttons">
-            <a href="/configurator">
+            <router-link exact to="/configurator">
                 <Button text="Maak je eigen donut" class="btn btn--yellow" textclass="btn__text" />
-            </a>
+            </router-link>
             <a href="https://donuttello.com/menu">
                 <Button text="Bekijk ons menu" class="btn btn--yellow" textclass="btn__text" />
             </a>

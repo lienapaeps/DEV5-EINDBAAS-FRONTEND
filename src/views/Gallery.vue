@@ -4,12 +4,35 @@ import { ref, reactive, onMounted } from 'vue'
 import router from '../router/router';
 
 if (!localStorage.getItem('token')) {
-    router.push('/')
+    router.push('/');
 }
 
 let donuts = reactive({
     donuts: []
 });
+
+// enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
+function checkLogin() {
+    if (localStorage.getItem("token")) {
+        fetch('https://dev5-donuttello.onrender.com/api/v1/donuts', {
+            'method': 'GET',
+            'headers': {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }).then(result => {
+            return result.json();
+        }).then(json => {
+            console.log(json);
+            // console.log(json);
+            donuts.donuts = json.data;
+
+        }).catch(err => {
+            console.log(err);
+            console.log("Only admin can access this page");
+            router.push('/')
+        });
+    }
+}
 
 // als card__delete is aangeklikt, dan wordt de card__warning getoond
 function showWarning() {
@@ -61,26 +84,7 @@ const deleteDonut = (id) => {
 }
 
 onMounted(() => {
-    // enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
-    if (localStorage.getItem("token")) {
-        fetch('https://dev5-donuttello.onrender.com/api/v1/donuts', {
-            'method': 'GET',
-            'headers': {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            }
-        }).then(result => {
-            return result.json();
-        }).then(json => {
-            console.log(json);
-            // console.log(json);
-            donuts.donuts = json.data;
-
-        }).catch(err => {
-            console.log(err);
-            console.log("Only admin can access this page");
-            // window.location.href = "/";
-        });
-    }
+    checkLogin();
 
     // showWarning();
     // hideWarning();

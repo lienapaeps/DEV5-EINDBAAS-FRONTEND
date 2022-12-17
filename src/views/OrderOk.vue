@@ -8,7 +8,9 @@ import Footr from '../components/Footr.vue'
     <div class="orderOk">
         <h2>Bedankt voor je <span style="color:var(--strawberry-pink)">bestelling</span>!</h2>
         <img class="img__order" src="../../imgs/orderconfirm.png" alt="orderOk">
-        <a href="/"><Button text="Terug naar home" class="btn btn--strawberry" textclass="btn__text" /></a>
+        <router-link exact to="/">
+            <Button text="Terug naar home" class="btn btn--strawberry" textclass="btn__text" />
+        </router-link>
     </div>
 
     <Footr />

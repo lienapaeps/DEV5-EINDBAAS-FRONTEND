@@ -1,5 +1,6 @@
 <script setup>// logica
 import Button from './Button.vue'
+import router from '../router/router';
 
 import { ref, onMounted } from 'vue'
 
@@ -26,7 +27,7 @@ function login() {
                     let token = json.data.token;
                     localStorage.setItem("token", token);
 
-                    window.location.href = "/gallerij";
+                    router.push('/gallerij')
                 } else {
                     let feedback = document.querySelector(".alert");
                     feedback.textContent = "Gebruikersnaam of wachtwoord zijn fout";

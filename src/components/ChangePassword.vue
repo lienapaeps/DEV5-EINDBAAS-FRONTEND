@@ -1,5 +1,7 @@
 <script setup>
 import Button from './Button.vue'
+import router from '../router/router';
+
 import { onMounted } from 'vue'
 
 // enkel ingelogde gebruiker (donuttello) mag deze pagina bezoeken
@@ -14,7 +16,7 @@ function checkLogin() {
             // console.log(json);
         }).catch(err => {
             console.log("Only admin can access this page");
-            window.location.href = "/";
+            router.push('/')
         })
 }
 

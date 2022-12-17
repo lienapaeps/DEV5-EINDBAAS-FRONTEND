@@ -7,7 +7,6 @@ let donuts = reactive({
 
 // get id from url
 let donutId = window.location.pathname.split("/")[2];
-
 // console.log(id);
 
 onMounted(() => {
@@ -24,7 +23,6 @@ onMounted(() => {
             .then(json => {
                 // console.log(json);
                 // console.log(json.data);
-                console.log(json.data.donut);
                 donuts.donuts = json.data.donut;
             })
     }
