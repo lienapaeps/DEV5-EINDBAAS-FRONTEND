@@ -102,9 +102,9 @@ onMounted(() => {
                     <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
                 </div>
                 <div class="card__image">
-                    <a v-bind:href="'#/details/' + donut._id">
+                    <router-link :to="'/details/' + donut._id">
                         <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
-                    </a>
+                    </router-link>
                 </div>
                 <div class="card__text">
                     <span class="card__highlight">Donut</span>
