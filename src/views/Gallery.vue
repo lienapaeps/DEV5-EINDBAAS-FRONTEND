@@ -50,7 +50,8 @@ const deleteDonut = (id) => {
         feedback.style.color = "#2e6a3b";
 
         // donut met deze id verwijderen uit de array
-        // donuts.donuts.donuts.splice(0, 1);
+        let index = donuts.donuts.donuts.findIndex(donut => donut._id === id);
+        donuts.donuts.donuts.splice(index, 1);
 
         // na 3 seconden verdwijnt het succes bericht
         // setTimeout(() => {
@@ -73,6 +74,7 @@ onMounted(() => {
             console.log(json);
             // console.log(json);
             donuts.donuts = json.data;
+
         }).catch(err => {
             console.log(err);
             console.log("Only admin can access this page");
