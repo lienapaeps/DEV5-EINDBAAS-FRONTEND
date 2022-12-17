@@ -21,7 +21,7 @@ function checkLogin() {
 
 function changePassword() {
     let btnChange = document.querySelector(".btn--change").addEventListener("click", function () {
-        console.log("clicked");
+        // console.log("clicked");
         let username = document.querySelector("#username").value;
         let oldPassword = document.querySelector("#oldPassword").value;
         let newPassword = document.querySelector("#newPassword").value;
@@ -40,7 +40,14 @@ function changePassword() {
             .then(response => response.json())
             .then((json) => {
                 if (json.status === "success") {
-                    window.location.href = "/login";
+                    let feedback = document.querySelector(".alert");
+                    feedback.textContent = "Wachtwoord is succesvol veranderd!";
+                    feedback.classList.remove("hidden");
+                    feedback.style.backgroundColor = "#d4edda";
+                    feedback.style.color = "#2e6a3b";
+                    document.querySelector("#username").value = "";
+                    document.querySelector("#oldPassword").value = "";
+                    document.querySelector("#newPassword").value = "";
                 } else {
                     let feedback = document.querySelector(".alert");
                     feedback.textContent = "Gebruikersnaam of wachtwoord zijn fout";
@@ -85,7 +92,7 @@ onMounted(() => {
         </div>
 
         <div class="form-group">
-            <Button text="Verander" class="btn btn--strawberry btn--change" textclass="btn__text" />
+            <Button text="Verander wachtwoord" class="btn btn--strawberry btn--change" textclass="btn__text" />
         </div>
     </form>
 
