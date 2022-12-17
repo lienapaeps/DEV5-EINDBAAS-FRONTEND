@@ -33,7 +33,7 @@ onMounted(() => {
 <template>
     <h1>Donut<span class="highlight">details</span></h1>
     <div class="details" v-for="donut in donuts.donuts" :key="donut.id">
-        <img src="{{ donut.imageUrl }}" alt=" Donut afbeelding">
+        <!-- <img src="{{ donut.imageUrl }}" alt=" Donut afbeelding"> -->
         <div class="details__donut">
             <h2>Donut gegevens</h2>
             <p>Naam donut: <span>{{ donut.nameDonut }}</span></p>
@@ -42,7 +42,7 @@ onMounted(() => {
             <p>Logo vorm: <span>{{ donut.logoShape }}</span></p>
             <div class="details__logo">
                 <p>Logo:</p>
-                <img src="{{ donut.logo }}" alt="Donut logo afbeelding">
+                <!-- <img src="{{ donut.logo }}" alt="Donut logo afbeelding"> -->
             </div>
             <p>Aantal donuts: <span>{{ donut.donutAmount }}</span></p>
             <p>Bestel datum: <span>{{ donut.createdAt }}</span></p>
