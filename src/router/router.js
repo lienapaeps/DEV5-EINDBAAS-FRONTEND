@@ -14,7 +14,7 @@ const routes = [
   { path: "/login", component: LogIn },
   { path: "/details/:id", component: DonutDetails },
   { path: "/instellingen", component: ChangePassword },
-  { path: "/order", component: OrderOk },
+  { path: "/order/:id", component: OrderOk },
 ];
 
 const router = createRouter({

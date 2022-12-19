@@ -54,7 +54,8 @@ function addDonut() {
                 return res.json();
             }).then(json => {
                 console.log(json);
-                router.push('/order')
+                console.log(json.data.donut._id);
+                router.push('/order/' +json.data.donut._id);
             }).catch(err => {
                 console.log(err);
             })
