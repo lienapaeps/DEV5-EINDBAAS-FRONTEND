@@ -5,6 +5,7 @@ import router from '../router/router';
 const logOut = () => {
     localStorage.removeItem("token");
     router.push('/')
+    location.reload();
 }
 
 const loggedIn = () => {

@@ -25,6 +25,7 @@ function checkLogin() {
             console.log(json);
             // console.log(json);
             donuts.donuts = json.data;
+            // location.reload();
 
         }).catch(err => {
             console.log(err);
@@ -77,9 +78,9 @@ const deleteDonut = (id) => {
         donuts.donuts.donuts.splice(index, 1);
 
         // na 3 seconden verdwijnt het succes bericht
-        // setTimeout(() => {
-        //     feedback.classList.add("hidden");
-        // }, 3000);
+        setTimeout(() => {
+            feedback.classList.add("hidden");
+        }, 3000);
     }
 }
 
