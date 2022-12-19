@@ -7,6 +7,9 @@ import Button from '../components/Button.vue'
 
     <div class="form">
         <h2>Bestel hier</h2>
+        <div class="alert hidden">
+            Here is some feedback
+        </div>
         <form class="form__order">
             <label for="nameDonut">Donut naam</label>
             <input type="text" id="nameDonut" name="nameDonut" placeholder="Donut naam" required>
@@ -20,7 +23,7 @@ import Button from '../components/Button.vue'
                     <input type="text" id="street" name="street" placeholder="Straat" required>
                 </div>
                 <div>
-                    <label for="streetNumber">Straat nummer</label>
+                    <label for="streetNumber">Huisnummer</label>
                     <input type="text" id="streetNumber" name="streetNumber" placeholder="Straat nummer" required>
                 </div>
             </div>
@@ -46,6 +49,26 @@ import Button from '../components/Button.vue'
 
 
 <style scoped>
+input:optional {
+    border-color: gray;
+}
+
+input:required:valid {
+    border-color: green;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input:required:focus:valid {
+    border-color: green;
+}
+
+input:focus:invalid {
+    border-color: red;
+}
+
 .form {
     margin: 3rem 0;
     min-width: 50%;
@@ -69,20 +92,20 @@ textarea {
 }
 
 .form__order__group {
-        display: flex;
-        flex-direction: row;
-        gap: 1.5em;
-    }
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+}
 
-    .form__order__group label {
-        padding-bottom: 10px;
-    }
+.form__order__group label {
+    padding-bottom: 10px;
+}
 
-    .form__order__group div {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
+.form__order__group div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 /* Tablet */
 @media (min-width: 768px) {

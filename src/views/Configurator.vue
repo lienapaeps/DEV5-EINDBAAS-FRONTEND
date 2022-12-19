@@ -53,11 +53,16 @@ function addDonut() {
             .then(res => {
                 return res.json();
             }).then(json => {
-                console.log(json);
-                console.log(json.data.donut._id);
-                router.push('/order/' +json.data.donut._id);
+                // console.log(json);
+                // console.log(json.data.donut._id);
+                router.push('/order/' + json.data.donut._id);
             }).catch(err => {
                 console.log(err);
+                let feedback = document.querySelector(".alert");
+                feedback.textContent = "Vull alle velden correct in.";
+                feedback.classList.remove("hidden");
+                feedback.style.backgroundColor = "#f8d7da";
+                feedback.style.color = "#721c24";
             })
     })
 }
