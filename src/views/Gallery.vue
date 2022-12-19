@@ -101,38 +101,32 @@ onMounted(() => {
     </div>
     <div class="app">
         <div class="card" v-for="donut in donuts.donuts.donuts" :key="donut.id">
-            <div class="donut-card">
-                <div class="card__warning hidden">
-                    <h3>Let op!</h3>
-                    <p>Wil je deze donut verwijderen?</p>
-                    <Button text="Behouden" class="btn btn--strawberry btn--login" textclass="btn__text" />
-                    <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
-                </div>
-                <div class="card__image">
-                    <router-link :to="'/details/' + donut._id">
+            <div class="card__delete">
+                <button class="deleted" v-on:click="deleteDonut(donut._id)">
+                    <img src="../../imgs/trash-regular.svg" alt="Trash icon">
+                </button>
+            </div>
+            <router-link :to="'/details/' + donut._id">
+                <div class="donut-card">
+                    <div class="card__warning hidden">
+                        <h3>Let op!</h3>
+                        <p>Wil je deze donut verwijderen?</p>
+                        <Button text="Behouden" class="btn btn--strawberry btn--login" textclass="btn__text" />
+                        <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
+                    </div>
+                    <div class="card__image">
                         <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
-                    </router-link>
-                </div>
-                <div class="card__text">
-                    <span class="card__highlight">Donut</span>
-                    <h2> {{ donut.nameDonut }}</h2>
-                    <h3 class="card__text__company">{{ donut.nameCompany }}</h3>
-                    <h3 class="amount">Aantal donuts: {{ donut.donutAmount }}</h3>
-                    <h3 class="date">Besteldatum: {{ donut.createdAt }}</h3>
-                </div>
-                <div class="card__edit">
-                    <a href="#/configurator">
-                        <img src="../../imgs/pen-to-square-regular.svg" alt="Edit icon">
-                    </a>
-                </div>
-                <div class="card__delete">
-                    <button class="deleted" v-on:click="deleteDonut(donut._id)">
-                        <img src="../../imgs/trash-regular.svg" alt="Trash icon">
-                    </button>
-                </div>
-                <div class="card__status">
-                    <p class="status__text">Status: <b>{{ donut.status }}</b></p>
-                    <!-- <form class="card__status__form" action="">
+                    </div>
+                    <div class="card__text">
+                        <span class="card__highlight">Donut</span>
+                        <h2> {{ donut.nameDonut }}</h2>
+                        <h3 class="card__text__company">{{ donut.nameCompany }}</h3>
+                        <h3 class="amount">Aantal donuts: {{ donut.donutAmount }}</h3>
+                        <h3 class="date">Besteldatum: {{ donut.createdAt }}</h3>
+                    </div>
+                    <div class="card__status">
+                        <p class="status__text">Status: <b>{{ donut.status }}</b></p>
+                        <!-- <form class="card__status__form" action="">
                         <label for="status">Status:</label>
                         <select name="status" id="status">
                             <option value="opgeslagen" selected>{{ donut.status }}</option>
@@ -140,13 +134,22 @@ onMounted(() => {
                             <option value="klaar">Klaar</option>
                         </select>
                     </form> -->
+                    </div>
                 </div>
-            </div>
+            </router-link>
         </div>
     </div>
 </template>
 
 <style scoped>
+.donut-card {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
 /* alert */
 .alert {
     margin: 3em;
@@ -234,20 +237,9 @@ h1 {
     width: 15%;
     text-align: center;
     position: absolute;
-    top: 7em;
+    top: 3em;
     right: 0;
     border: none;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-.card__edit {
-    background-color: var(--strawberry-pink);
-    width: 15%;
-    text-align: center;
-    position: absolute;
-    top: 2em;
-    right: 0;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
@@ -257,17 +249,8 @@ h1 {
     padding: 1em 0;
 }
 
-.card__edit img {
-    width: 35%;
-}
-
 .card__delete img {
     width: 35%;
-}
-
-.card__edit a {
-    display: block;
-    padding: 1em 0;
 }
 
 .card__status {
@@ -328,15 +311,7 @@ select {
         width: 15%;
     }
 
-    .card__edit {
-        width: 15%;
-    }
-
     .card__delete a {
-        padding: 1em 0;
-    }
-
-    .card__edit a {
         padding: 1em 0;
     }
 
@@ -344,8 +319,5 @@ select {
         width: 25%;
     }
 
-    .card__edit img {
-        width: 25%;
-    }
 }
 </style>
