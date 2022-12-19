@@ -68,6 +68,22 @@ textarea {
     border: 1px solid black;
 }
 
+.form__order__group {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5em;
+    }
+
+    .form__order__group label {
+        padding-bottom: 10px;
+    }
+
+    .form__order__group div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
 /* Tablet */
 @media (min-width: 768px) {
     body {
@@ -82,22 +98,6 @@ textarea {
     body {
         margin: 0;
         padding: 0;
-    }
-
-    .form__order__group {
-        display: flex;
-        flex-direction: row;
-        gap: 1.5em;
-    }
-
-    .form__order__group label {
-        padding-bottom: 10px;
-    }
-
-    .form__order__group div {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
     }
 
 }
