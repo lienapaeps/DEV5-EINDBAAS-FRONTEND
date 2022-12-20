@@ -81,8 +81,12 @@
         //foreach icing log the color
         icing.forEach(ice => {
             ice.addEventListener("click", (e) => {
+                if(e.target.value == "transparent"){
+                    donut.children[0].visible = false;
+                } else {
+                    donut.children[0].visible = true;
+                }
                 donut.children[0].material.color.set(e.target.value);
-                // console.log(e.target.value)
             })
         });
 
@@ -252,7 +256,7 @@
         }
         donut.rotateX(0.3);
         donut.rotateZ(-0.10);
-        donut.children[0].material.color.set("#ce4670"); //glace
+        donut.children[0].material.color.set("rgb(216, 134, 167)"); //glace
         donut.children[1].visible = false; //sprinkles
         donut.children[2].visible = false; //marshmallows
         donut.children[2].material.color.set("rgb(225, 225, 225)");

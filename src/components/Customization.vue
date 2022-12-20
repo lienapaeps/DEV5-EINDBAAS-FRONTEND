@@ -6,7 +6,10 @@
     <div class="options">
         <h2>Glazuur</h2>
         <div class="options__container icing__container border__select">
-            <input type="radio" id="strawberry" name="icing" value="rgb(216, 134, 167)" class="icinginput">
+            <input type="radio" id="naked" name="icing" value="transparent" class="icinginput">
+            <label for="naked" class="icing icing--naked" data-color="transparent"></label>
+
+            <input type="radio" id="strawberry" name="icing" value="rgb(216, 134, 167)" class="icinginput" checked>
             <label for="strawberry" class="icing icing--strawberry" data-color="rgb(254, 157, 196)"></label>
 
             <input type="radio" id="brown" name="icing" value="rgb(130, 80, 69)" class="icinginput">
@@ -230,6 +233,10 @@ label {
 
 #company_logo {
     padding-bottom: 20px;
+}
+
+.border__select input[type="radio"]+.icing--naked {
+    border: solid 3px var(--black);
 }
 
 /* Tablet */
