@@ -93,7 +93,6 @@
             stopturning = true;
             reader.addEventListener("load", () => {
             const uploadedImage = reader.result;
-            console.log(uploadedImage)
             texture = new THREE.TextureLoader().load( uploadedImage );
             console.log(texture)
 
@@ -220,6 +219,18 @@
             // document.getElementById("imageContainer").style.backgroundImage = 'url('+uploadedImage+')';
             // document.getElementById("base64Container").innerHTML = uploadedImage;
             reader.readAsDataURL(this.files[0]);
+
+            let checkboxes = document.querySelectorAll('.logo');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', () => {
+                    let ImageUrl = new Image();
+                    renderer.render(scene, camera);
+                    ImageUrl.src = renderer.domElement.toDataURL();
+                    console.log(ImageUrl);
+                    localStorage.setItem('ImageUrl', ImageUrl.src);
+                    console.log(localStorage.getItem('ImageUrl'));
+                });
+            });
         });
     });
 

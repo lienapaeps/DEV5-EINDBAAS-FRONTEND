@@ -8,7 +8,7 @@ import Customization from '../components/Customization.vue';
 
 function addDonut() {
     let btn = document.querySelector(".btn--order").addEventListener("click", e => {
-        // console.log("clicked");
+        console.log("clicked");
         let email = document.querySelector("#email").value;
         let nameCompany = document.querySelector("#companyName").value;
         let nameDonut = document.querySelector("#nameDonut").value;
@@ -21,7 +21,11 @@ function addDonut() {
         let topping = document.querySelector("input[name=topping]:checked").value;
         let logo = "https://lienapaeps.be/imgs/meta-image.png";
         let logoShape = document.querySelector("input[name=logo]:checked").value;
-        let imageUrl = "https://vandemoortele.com/sites/default/files/styles/square_product/public/832d7012c5b0ce0e985fef4c1116ef95963631cf.jpg?itok=Y7hnKSUc";
+        
+        
+        // let ImageUrl = document.querySelector(".donut__img").src;
+        let imageUrl = localStorage.getItem("ImageUrl");
+        console.log(imageUrl);
         let donutAmount = document.querySelector("#donutAmount").value;
 
         let dataDonut = {
@@ -41,7 +45,7 @@ function addDonut() {
             donutAmount
         }
 
-        // console.log(dataDonut);
+        console.log(dataDonut);
 
         fetch("https://dev5-donuttello.onrender.com/api/v1/donuts", {
             method: "POST",
