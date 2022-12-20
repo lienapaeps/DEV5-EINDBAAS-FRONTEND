@@ -10,7 +10,8 @@ function checkLogin() {
         "method": "GET",
         "headers": {
             "Authorization": "Bearer " + localStorage.getItem("token")
-        }
+        },
+        mode: "cors",
     }).then(res => res.json())
         .then(json => {
             // console.log(json);

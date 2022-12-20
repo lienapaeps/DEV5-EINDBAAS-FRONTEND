@@ -18,6 +18,7 @@ const updateStatus = (status) => {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
+            mode: "cors",
             'body': JSON.stringify({
                 status: status
             })
@@ -33,7 +34,8 @@ onMounted(() => {
             headers: {
                 "Content-Type": "application/json",
                 "authorization": "Bearer " + localStorage.getItem("token"),
-            }
+            },
+            mode: "cors",
         })
             .then(response => response.json())
             .then(json => {

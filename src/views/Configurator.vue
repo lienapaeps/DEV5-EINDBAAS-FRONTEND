@@ -54,6 +54,7 @@ function addDonut() {
             "headers": {
                 "Content-Type": "application/json"
             },
+            mode: "cors",
             body: JSON.stringify(dataDonut)
         })
             .then(res => {

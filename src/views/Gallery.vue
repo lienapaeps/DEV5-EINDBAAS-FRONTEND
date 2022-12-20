@@ -18,7 +18,8 @@ function checkLogin() {
             'method': 'GET',
             'headers': {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
-            }
+            },
+            mode: "cors",
         }).then(result => {
             return result.json();
         }).then(json => {
@@ -34,27 +35,6 @@ function checkLogin() {
     }
 }
 
-// als card__delete is aangeklikt, dan wordt de card__warning getoond
-function showWarning() {
-    const button = document.querySelector(".deleted");
-    button.addEventListener("click", function () {
-        const warning = document.querySelector(".card__warning");
-        warning.classList.remove("hidden");
-    })
-}
-
-function hideWarning() {
-    const button = document.querySelector(".btn--strawberry");
-    button.addEventListener("click", function () {
-        const warning = document.querySelector(".card__warning");
-        warning.classList.add("hidden");
-    })
-}
-
-const changeStatus = () => {
-
-}
-
 const deleteDonut = (id) => {
     if (localStorage.getItem("token")) {
         fetch("https://dev5-donuttello.onrender.com/api/v1/donuts/" + id, {
@@ -62,7 +42,8 @@ const deleteDonut = (id) => {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + localStorage.getItem("token"),
-            }
+            },
+            mode: "cors",
         }).then(res => res.json())
         console.log("Donut verwijderd");
         // succes bericht tonen
@@ -83,34 +64,8 @@ const deleteDonut = (id) => {
     }
 }
 
-const updateStatus = (id) => {
-
-    // if (localStorage.getItem("token")) {
-    //     fetch("https://dev5-donuttello.onrender.com/api/v1/donuts/" + id, {
-    //         method: "PUT",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Authorization": "Bearer " + localStorage.getItem("token"),
-    //         },
-    //         body: JSON.stringify({
-    //             "status": status
-    //         })
-    //     }).then(res => {
-    //         return res.json();
-    //     }).then(json => {
-    //         console.log(json);
-    //     }).catch(err => {
-    //         console.log(err);
-    //     })
-    // }
-}
-
 onMounted(() => {
     checkLogin();
-
-    // showWarning();
-    // hideWarning();
-    // changeStatus();
 });
 
 </script>
@@ -154,7 +109,7 @@ onMounted(() => {
                 <div class="card__image__logo">
                     <div class="card__image__logo__info">
                         <p>Logo preview:</p>
-                        <a :href="donut.logo" :download="'donut-logo-'+donut.nameCompany">Download Logo</a>
+                        <a :href="donut.logo" :download="'donut-logo-' + donut.nameCompany">Download Logo</a>
                     </div>
                     <img :src="donut.logo" alt="Donut logo afbeelding">
                 </div>
