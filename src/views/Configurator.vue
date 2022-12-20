@@ -17,6 +17,7 @@ function addDonut() {
         let city = document.querySelector("#city").value;
         let remarks = document.querySelector("#remarks").value;
         let icing = document.querySelector("input[name=icing]:checked").value;
+        // if(icing = )
         let topping = document.querySelector("input[name=topping]:checked").value;
 
         let logo = localStorage.getItem("uploadedImage");

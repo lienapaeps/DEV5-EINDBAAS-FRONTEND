@@ -23,7 +23,6 @@ function checkLogin() {
 
 function changePassword() {
     let btnChange = document.querySelector(".btn--change").addEventListener("click", function () {
-        // console.log("clicked");
         let username = document.querySelector("#username").value;
         let oldPassword = document.querySelector("#oldPassword").value;
         let newPassword = document.querySelector("#newPassword").value;

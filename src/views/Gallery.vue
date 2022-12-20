@@ -150,6 +150,15 @@ onMounted(() => {
             <div class="card__status">
                 <p class="status__text">Status: <b>{{ donut.status }}</b></p>
 
+                <!-- TODO: AANPASSEN NAAR LOGO LINK -->
+                <div class="card__image__logo">
+                    <div class="card__image__logo__info">
+                        <p>Logo preview:</p>
+                        <a :href="donut.logo" :download="'donut-logo-'+donut.nameCompany">Download Logo</a>
+                    </div>
+                    <img :src="donut.logo" alt="Donut logo afbeelding">
+                </div>
+
                 <div class="status__options">
                     <!-- <select name="status" id="status" v-on:click="updateStatus(donut._id)">
                         <option value="Opgeslagen">Opgeslagen</option>
@@ -244,6 +253,18 @@ h1 {
     padding: 1.6em 0;
     text-align: center;
     border-bottom: 2px solid var(--strawberry-pink);
+}
+
+.card__image__logo__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__image__logo img {
+    width: 100%;
+    object-fit: contain;
+    object-position: 45% 20%;
 }
 
 .card__image img {
