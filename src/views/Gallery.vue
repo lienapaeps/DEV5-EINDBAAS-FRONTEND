@@ -249,7 +249,7 @@ h1 {
     width: 250px;
     height: 250px;
     object-fit: cover;
-    object-position: 100% 20%;
+    object-position: 45% 20%;
 }
 
 .card__highlight {

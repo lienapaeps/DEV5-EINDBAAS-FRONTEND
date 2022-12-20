@@ -106,7 +106,7 @@ span {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    object-position: 100% 15%;
+    object-position: 45% 20%;
 }
 
 .logo__img {
