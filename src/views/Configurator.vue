@@ -8,7 +8,6 @@ import Customization from '../components/Customization.vue';
 
 function addDonut() {
     let btn = document.querySelector(".btn--order").addEventListener("click", e => {
-        console.log("clicked");
         let email = document.querySelector("#email").value;
         let nameCompany = document.querySelector("#companyName").value;
         let nameDonut = document.querySelector("#nameDonut").value;
@@ -19,13 +18,13 @@ function addDonut() {
         let remarks = document.querySelector("#remarks").value;
         let icing = document.querySelector("input[name=icing]:checked").value;
         let topping = document.querySelector("input[name=topping]:checked").value;
-        let logo = "https://lienapaeps.be/imgs/meta-image.png";
+
+        let logo = localStorage.getItem("uploadedImage");
+
         let logoShape = document.querySelector("input[name=logo]:checked").value;
         
-        
-        // let ImageUrl = document.querySelector(".donut__img").src;
         let imageUrl = localStorage.getItem("ImageUrl");
-        console.log(imageUrl);
+
         let donutAmount = document.querySelector("#donutAmount").value;
 
         let dataDonut = {
