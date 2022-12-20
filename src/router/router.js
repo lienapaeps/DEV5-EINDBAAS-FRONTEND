@@ -11,7 +11,7 @@ const routes = [
   { path: "/", component: Home },
   { path: "/gallerij", component: Gallery },
   { path: "/configurator", component: Configurator },
-  { path: "/login", component: LogIn },
+  { path: "/admin", component: LogIn },
   { path: "/details/:id", component: DonutDetails },
   { path: "/instellingen", component: ChangePassword },
   { path: "/order/:id", component: OrderOk },

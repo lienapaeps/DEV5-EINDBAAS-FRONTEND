@@ -5,7 +5,7 @@ import router from '../router/router';
 const logOut = () => {
     localStorage.removeItem("token");
     router.push('/')
-    location.reload();
+    window.location.reload()
 }
 
 const loggedIn = () => {
@@ -40,7 +40,6 @@ onMounted(() => {
             <template v-else>
                 <router-link exact to="/">Home</router-link>
                 <router-link exact to="/configurator">Configurator</router-link>
-                <router-link exact to="/login">Log in</router-link>
             </template>
         </div>
     </nav>

@@ -30,7 +30,7 @@ function checkLogin() {
         }).catch(err => {
             console.log(err);
             console.log("Only admin can access this page");
-            router.push('/')
+            router.push('/');
         });
     }
 }
