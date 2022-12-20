@@ -7,7 +7,6 @@ import { ref, onMounted } from 'vue'
 // inloggen
 function login() {
     let btnLogin = document.querySelector(".btn--login").addEventListener("click", function () {
-        // console.log("clicked");
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
 
