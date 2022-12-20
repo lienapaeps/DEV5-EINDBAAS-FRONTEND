@@ -25,7 +25,6 @@ function checkLogin() {
             // console.log(json);
             // console.log(json);
             donuts.donuts = json.data;
-            // location.reload();
 
         }).catch(err => {
             console.log(err);
