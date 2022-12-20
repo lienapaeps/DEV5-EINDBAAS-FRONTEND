@@ -87,134 +87,135 @@
         });
 
         let fileInput = document.getElementById('company_logo');
-        var texture;
         fileInput.addEventListener("change", function(e) {
             const reader = new FileReader();
             stopturning = true;
             reader.addEventListener("load", () => {
-            const uploadedImage = reader.result;
-            texture = new THREE.TextureLoader().load( uploadedImage );
-            console.log(texture)
+                const uploadedImage = reader.result;
+                let texture = new THREE.TextureLoader().load( uploadedImage );
 
-            // rectanglecard
-            const rectangleGeometry = new THREE.BoxGeometry(3, .1, 1.5);
-            const rectangleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
-            rectangleMaterial.map = texture;
-            const rectangle = new THREE.Mesh(rectangleGeometry, rectangleMaterial);
-            rectangle.name = "rectangle";
-            if (window.innerWidth < 768) {
-                rectangle.scale.set(.8, 1, .8);
-                rectangle.position.set(0, 6, 3.3)
-            } else {
-                rectangle.position.set(0, 2, 4.5)
-            }
-            rectangle.rotation.x = 1.65;
-            rectangle.rotation.y = -.03;
+                // set uploadedImage in localstorage
+                localStorage.setItem("uploadedImage", uploadedImage);
 
-            const checkboxRectangle = document.querySelector(".logo--rectangle");
-            checkboxRectangle.addEventListener("click", () => {
-                if (scene.getObjectByName('rectangle')) {
-                    scene.remove(rectangle);
+                // rectanglecard
+                const rectangleGeometry = new THREE.BoxGeometry(3, .1, 1.5);
+                const rectangleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
+                rectangleMaterial.map = texture;
+                const rectangle = new THREE.Mesh(rectangleGeometry, rectangleMaterial);
+                rectangle.name = "rectangle";
+                if (window.innerWidth < 768) {
+                    rectangle.scale.set(.8, 1, .8);
+                    rectangle.position.set(0, 6, 3.3)
                 } else {
-                    scene.add(rectangle);
-                    scene.remove(square);
-                    scene.remove(circle);
-                    scene.remove(ellipse);
+                    rectangle.position.set(0, 2, 4.5)
                 }
-            });
+                rectangle.rotation.x = 1.65;
+                rectangle.rotation.y = -.03;
 
-            // squarecard
-            const squareGeometry = new THREE.BoxGeometry(2.5, .1, 2.5);
-            const squareMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
-            squareMaterial.map = texture;
-            const square = new THREE.Mesh(squareGeometry, squareMaterial);
-            square.name = "square";
-            if (window.innerWidth < 768) {
-                square.scale.set(.8, 1, .8);
-                square.position.set(0, 6, 3.3)
-            } else {
-                square.position.set(0, 2, 4.5)
-            }
-            square.rotation.x = 1.65;
-            square.rotation.y = -.03;
+                const checkboxRectangle = document.querySelector(".logo--rectangle");
+                checkboxRectangle.addEventListener("click", () => {
+                    if (scene.getObjectByName('rectangle')) {
+                        scene.remove(rectangle);
+                    } else {
+                        scene.add(rectangle);
+                        scene.remove(square);
+                        scene.remove(circle);
+                        scene.remove(ellipse);
+                    }
+                });
 
-            const checkboxsquare = document.querySelector(".logo--square");
-            checkboxsquare.addEventListener("click", () => {
-                if (scene.getObjectByName('square')) {
-                    scene.remove(square);
+                // squarecard
+                const squareGeometry = new THREE.BoxGeometry(2.5, .1, 2.5);
+                const squareMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
+                squareMaterial.map = texture;
+                const square = new THREE.Mesh(squareGeometry, squareMaterial);
+                square.name = "square";
+                if (window.innerWidth < 768) {
+                    square.scale.set(.8, 1, .8);
+                    square.position.set(0, 6, 3.3)
                 } else {
-                    scene.add(square);
-                    scene.remove(rectangle);
-                    scene.remove(circle);
-                    scene.remove(ellipse);
+                    square.position.set(0, 2, 4.5)
                 }
-            });
+                square.rotation.x = 1.65;
+                square.rotation.y = -.03;
 
-            // circlecard
-            const circleGeometry = new THREE.CylinderGeometry(1.5, 1.5, .2, 32);
-            const circleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
-            circleMaterial.map = texture;
-            const circle = new THREE.Mesh(circleGeometry, circleMaterial);
-            circle.name = "circle";
-            if (window.innerWidth < 768) {
-                circle.scale.set(.8, 1, .8);
-                circle.position.set(0, 6, 3.3)
-            } else {
-                circle.position.set(0, 2, 4.5)
-            }
-            circle.rotation.x = 1.65;
-            circle.rotation.y = 1.57;
+                const checkboxsquare = document.querySelector(".logo--square");
+                checkboxsquare.addEventListener("click", () => {
+                    if (scene.getObjectByName('square')) {
+                        scene.remove(square);
+                    } else {
+                        scene.add(square);
+                        scene.remove(rectangle);
+                        scene.remove(circle);
+                        scene.remove(ellipse);
+                    }
+                });
 
-            const checkboxcircle = document.querySelector(".logo--circle");
-            checkboxcircle.addEventListener("click", () => {
-                if (scene.getObjectByName('circle')) {
-                    scene.remove(circle);
+                // circlecard
+                const circleGeometry = new THREE.CylinderGeometry(1.5, 1.5, .2, 32);
+                const circleMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
+                circleMaterial.map = texture;
+                const circle = new THREE.Mesh(circleGeometry, circleMaterial);
+                circle.name = "circle";
+                if (window.innerWidth < 768) {
+                    circle.scale.set(.8, 1, .8);
+                    circle.position.set(0, 6, 3.3)
                 } else {
-                    scene.add(circle);
-                    scene.remove(rectangle);
-                    scene.remove(square);
-                    scene.remove(ellipse);
+                    circle.position.set(0, 2, 4.5)
                 }
-            });
+                circle.rotation.x = 1.65;
+                circle.rotation.y = 1.57;
 
-            // ellipsecard
-            const ellipseGeometry = new THREE.CylinderGeometry(2, 2, .2, 32);
-            // const ellipseGeometry = new THREE.EllipseCurve(
-            //     0,  0,            // ax, aY
-            //     1.5, 1.5,           // xRadius, yRadius
-            //     0,  2 * Math.PI,  // aStartAngle, aEndAngle
-            //     false,            // aClockwise
-            //     0                 // aRotation
-            // );
-            // const points = ellipseGeometry.getPoints( 50 );
-            // const ellipseGeometry2 = new THREE.BufferGeometry().setFromPoints( points );
-            // const ellipsePath = new THREE.Path(ellipseGeometry.getPoints(50));
-            // const ellipseGeometry2 = ellipsePath.createPointsGeometry(50);
-            const ellipseMaterial = new THREE.MeshLambertMaterial( { color : 0xffffff, side: THREE.DoubleSide } );
-            ellipseMaterial.map = texture;
-            const ellipse = new THREE.Mesh(ellipseGeometry, ellipseMaterial);
-            ellipse.name = "ellipse";
-            if (window.innerWidth < 768) {
-                ellipse.position.set(0, 6, 3.3)
-            } else {
-                ellipse.position.set(0, 2, 4.5)
-            }
-            ellipse.rotation.x = 1.65;
-            ellipse.rotation.y = 1.57;
-            ellipse.scale.set(.5, 1, .8);
+                const checkboxcircle = document.querySelector(".logo--circle");
+                checkboxcircle.addEventListener("click", () => {
+                    if (scene.getObjectByName('circle')) {
+                        scene.remove(circle);
+                    } else {
+                        scene.add(circle);
+                        scene.remove(rectangle);
+                        scene.remove(square);
+                        scene.remove(ellipse);
+                    }
+                });
 
-            const checkboxellipse = document.querySelector(".logo--ellipse");
-            checkboxellipse.addEventListener("click", () => {
-                console.log('ellipse');
-                if (scene.getObjectByName('ellipse')) {
-                    scene.remove(ellipse);
+                // ellipsecard
+                const ellipseGeometry = new THREE.CylinderGeometry(2, 2, .2, 32);
+                // const ellipseGeometry = new THREE.EllipseCurve(
+                //     0,  0,            // ax, aY
+                //     1.5, 1.5,           // xRadius, yRadius
+                //     0,  2 * Math.PI,  // aStartAngle, aEndAngle
+                //     false,            // aClockwise
+                //     0                 // aRotation
+                // );
+                // const points = ellipseGeometry.getPoints( 50 );
+                // const ellipseGeometry2 = new THREE.BufferGeometry().setFromPoints( points );
+                // const ellipsePath = new THREE.Path(ellipseGeometry.getPoints(50));
+                // const ellipseGeometry2 = ellipsePath.createPointsGeometry(50);
+                const ellipseMaterial = new THREE.MeshLambertMaterial( { color : 0xffffff, side: THREE.DoubleSide } );
+                ellipseMaterial.map = texture;
+                const ellipse = new THREE.Mesh(ellipseGeometry, ellipseMaterial);
+                ellipse.name = "ellipse";
+                if (window.innerWidth < 768) {
+                    ellipse.position.set(0, 6, 3.3)
                 } else {
-                    scene.add(ellipse);
-                    scene.remove(rectangle);
-                    scene.remove(square);
-                    scene.remove(circle);
+                    ellipse.position.set(0, 2, 4.5)
                 }
-            });
+                ellipse.rotation.x = 1.65;
+                ellipse.rotation.y = 1.57;
+                ellipse.scale.set(.5, 1, .8);
+
+                const checkboxellipse = document.querySelector(".logo--ellipse");
+                checkboxellipse.addEventListener("click", () => {
+                    console.log('ellipse');
+                    if (scene.getObjectByName('ellipse')) {
+                        scene.remove(ellipse);
+                    } else {
+                        scene.add(ellipse);
+                        scene.remove(rectangle);
+                        scene.remove(square);
+                        scene.remove(circle);
+                    }
+                });
             });
             // document.getElementById("imageContainer").style.backgroundImage = 'url('+uploadedImage+')';
             // document.getElementById("base64Container").innerHTML = uploadedImage;
@@ -222,15 +223,18 @@
 
             let checkboxes = document.querySelectorAll('.logo');
             checkboxes.forEach(checkbox => {
+
                 checkbox.addEventListener('click', () => {
                     let ImageUrl = new Image();
                     renderer.render(scene, camera);
                     ImageUrl.src = renderer.domElement.toDataURL();
-                    console.log(ImageUrl);
+
                     localStorage.setItem('ImageUrl', ImageUrl.src);
-                    console.log(localStorage.getItem('ImageUrl'));
                 });
-            });
+            });   
+                    
+            // LogoUrl.src = document.querySelector("input[name=company_logo]").files[0].name;
+            // localStorage.setItem('LogoUrl', LogoUrl.src);
         });
     });
 
