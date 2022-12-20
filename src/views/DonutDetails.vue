@@ -33,7 +33,7 @@ onMounted(() => {
 <template>
     <h1>Donut<span class="highlight">details</span></h1>
     <div class="details" v-for="donut in donuts.donuts" :key="donut.id">
-        <!-- <img src="{{ donut.imageUrl }}" alt=" Donut afbeelding"> -->
+        <img class="donut__img" :src="donut.imageUrl" alt="Donut afbeelding">
         <div class="details__donut">
             <h2>Donut gegevens</h2>
             <p>Naam donut: <span>{{ donut.nameDonut }}</span></p>
@@ -42,7 +42,7 @@ onMounted(() => {
             <p>Logo vorm: <span>{{ donut.logoShape }}</span></p>
             <div class="details__logo">
                 <p>Logo:</p>
-                <!-- <img src="{{ donut.logo }}" alt="Donut logo afbeelding"> -->
+                <img class="logo__img" :src="donut.logo" alt="Donut logo afbeelding">
             </div>
             <p>Aantal donuts: <span>{{ donut.donutAmount }}</span></p>
             <p>Bestel datum: <span>{{ donut.createdAt }}</span></p>
@@ -102,6 +102,17 @@ span {
     padding-left: .5em;
 }
 
+.donut__img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 100% 15%;
+}
+
+.logo__img {
+    max-width: 100%;
+}
+
 /* Tablet */
 @media (min-width: 768px) {}
 
@@ -119,6 +130,17 @@ span {
         padding: 2em;
         margin: 3em;
         margin-top: 2.5em;
+    }
+
+    .donut__img {
+        width: 30%;
+        height: 400px;
+        object-fit: cover;
+        object-position: 100% 20%;
+    }
+
+    .logo__img {
+        max-width: 20%;
     }
 }
 </style>

@@ -137,7 +137,7 @@ onMounted(() => {
                         <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
                     </div>
                     <div class="card__image">
-                        <img :src="donut.imageUrl" alt="Donut logo afbeelding">
+                        <img :src="donut.imageUrl" alt="Donut afbeelding">
                     </div>
                     <div class="card__text">
                         <span class="card__highlight">Donut</span>
