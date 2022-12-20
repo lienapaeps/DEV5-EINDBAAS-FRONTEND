@@ -21,6 +21,8 @@ function addDonut() {
 
         let logo = localStorage.getItem("uploadedImage");
 
+        console.log(logo);
+
         let logoShape = document.querySelector("input[name=logo]:checked").value;
 
         let imageUrl = localStorage.getItem("ImageUrl");
