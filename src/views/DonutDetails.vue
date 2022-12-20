@@ -74,8 +74,7 @@ h1 {
 }
 
 .details {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    border: 2px solid #dee2e6;
     border-radius: 8px;
     padding: 2em;
     margin: 1em;
@@ -83,7 +82,7 @@ h1 {
 }
 
 .details__donut {
-    border-bottom: 1px solid #e0e3e6;
+    border-bottom: 2px solid #e0e3e6;
     width: 100%;
     padding-bottom: 1em;
 }

@@ -238,11 +238,12 @@ h1 {
 }
 
 .card__image {
-    background-color: var(--lemon-yellow);
+    /* background-color: var(--lemon-yellow); */
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
     padding: 1.6em 0;
     text-align: center;
+    border-bottom: 2px solid var(--strawberry-pink);
 }
 
 .card__image img {
