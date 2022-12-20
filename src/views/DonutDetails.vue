@@ -74,8 +74,7 @@ h1 {
 }
 
 .details {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    border: 2px solid #dee2e6;
     border-radius: 8px;
     padding: 2em;
     margin: 1em;
@@ -83,7 +82,7 @@ h1 {
 }
 
 .details__donut {
-    border-bottom: 1px solid #e0e3e6;
+    border-bottom: 2px solid #e0e3e6;
     width: 100%;
     padding-bottom: 1em;
 }
@@ -106,7 +105,7 @@ span {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    object-position: 100% 15%;
+    object-position: 45% 20%;
 }
 
 .logo__img {
@@ -136,7 +135,7 @@ span {
         width: 30%;
         height: 400px;
         object-fit: cover;
-        object-position: 100% 20%;
+        object-position: 45% 20%;
     }
 
     .logo__img {

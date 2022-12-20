@@ -6,6 +6,7 @@ import Configurator from '../views/Configurator.vue'
 import OrderOk from '../views/OrderOk.vue'
 import ChangePassword from '../components/ChangePassword.vue';
 import DonutDetails from '../views/DonutDetails.vue';
+import Share from '../views/Share.vue';
 
 const routes = [
   { path: "/", component: Home },
@@ -15,6 +16,7 @@ const routes = [
   { path: "/details/:id", component: DonutDetails },
   { path: "/instellingen", component: ChangePassword },
   { path: "/order/:id", component: OrderOk },
+  { path: "/share/:id", component: Share },
 ];
 
 const router = createRouter({
