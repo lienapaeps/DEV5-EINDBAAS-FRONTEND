@@ -40,6 +40,7 @@ onMounted(() => {
             <template v-else>
                 <router-link exact to="/">Home</router-link>
                 <router-link exact to="/configurator">Configurator</router-link>
+                <router-link exact to="/admin">Inloggen</router-link>
             </template>
         </div>
     </nav>
