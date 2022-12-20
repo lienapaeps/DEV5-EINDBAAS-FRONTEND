@@ -10,19 +10,19 @@ let donuts = reactive({
 let donutId = window.location.pathname.split('/')[2];
 
 onMounted(() => {
-        fetch("https://dev5-donuttello.onrender.com/api/v1/donuts/" + donutId, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            mode: 'cors',
+    fetch("https://dev5-donuttello.onrender.com/api/v1/donuts/" + donutId, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        mode: 'cors',
+    })
+        .then(response => response.json())
+        .then(json => {
+            console.log(json);
+            // console.log(json.data);
+            donuts.donuts = json.data.donut;
         })
-            .then(response => response.json())
-            .then(json => {
-                console.log(json);
-                // console.log(json.data);
-                donuts.donuts = json.data.donut;
-            })
 })
 
 </script>
@@ -46,12 +46,13 @@ onMounted(() => {
             <p>Bestel datum: <span>{{ donut.createdAt }}</span></p>
             <p>Opmerkingen: <span>{{ donut.remarks }}</span></p>
             <p>Status: <span>{{ donut.status }}</span></p>
-        
-            <a target="_blank" :href="donut.imageUrl"> Deel jouw donut</a>
+
+            <!-- <a target="_blank" :href="donut.imageUrl"> Deel jouw donut</a> -->
+            <router-link :to="'/share/' + donut._id">Deel jouw donut</router-link>
 
         </div>
 
-        
+
 
         <router-link exact to="/">
             <Button text="Terug naar home" class="btn btn--strawberry" textclass="btn__text" />
@@ -74,11 +75,11 @@ onMounted(() => {
     width: 25vh;
 }
 
-.imgLogo{
+.imgLogo {
     max-width: 40%;
 }
 
-.orderDonut{
+.orderDonut {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,7 +89,7 @@ onMounted(() => {
     width: 80%;
 }
 
-.details__logo{
+.details__logo {
     display: flex;
     flex-direction: column;
     align-items: center;
