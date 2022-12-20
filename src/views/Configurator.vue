@@ -21,8 +21,8 @@ function addDonut() {
         let topping = document.querySelector("input[name=topping]:checked").value;
         let logo = "https://lienapaeps.be/imgs/meta-image.png";
         let logoShape = document.querySelector("input[name=logo]:checked").value;
-        
-        
+
+
         // let ImageUrl = document.querySelector(".donut__img").src;
         let imageUrl = localStorage.getItem("ImageUrl");
         console.log(imageUrl);
