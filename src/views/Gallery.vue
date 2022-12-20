@@ -22,7 +22,7 @@ function checkLogin() {
         }).then(result => {
             return result.json();
         }).then(json => {
-            console.log(json);
+            // console.log(json);
             // console.log(json);
             donuts.donuts = json.data;
             // location.reload();
@@ -84,6 +84,28 @@ const deleteDonut = (id) => {
     }
 }
 
+const updateStatus = (id) => {
+
+    // if (localStorage.getItem("token")) {
+    //     fetch("https://dev5-donuttello.onrender.com/api/v1/donuts/" + id, {
+    //         method: "PUT",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": "Bearer " + localStorage.getItem("token"),
+    //         },
+    //         body: JSON.stringify({
+    //             "status": status
+    //         })
+    //     }).then(res => {
+    //         return res.json();
+    //     }).then(json => {
+    //         console.log(json);
+    //     }).catch(err => {
+    //         console.log(err);
+    //     })
+    // }
+}
+
 onMounted(() => {
     checkLogin();
 
@@ -115,7 +137,7 @@ onMounted(() => {
                         <Button text="Verwijderen" class="btn btn--yellow btn--login" textclass="btn__text" />
                     </div>
                     <div class="card__image">
-                        <img src="../../imgs/donut-3264616-2731928.webp" alt="Image of created donut">
+                        <img :src="donut.imageUrl" alt="Donut logo afbeelding">
                     </div>
                     <div class="card__text">
                         <span class="card__highlight">Donut</span>
@@ -124,26 +146,44 @@ onMounted(() => {
                         <h3 class="amount">Aantal donuts: {{ donut.donutAmount }}</h3>
                         <h3 class="date">Besteldatum: {{ donut.createdAt }}</h3>
                     </div>
-                    <div class="card__status">
-                        <p class="status__text">Status: <b>{{ donut.status }}</b></p>
-                        <!-- <form class="card__status__form" action="">
-                        <label for="status">Status:</label>
-                        <select name="status" id="status">
-                            <option value="opgeslagen" selected>{{ donut.status }}</option>
-                            <option value="productie">In productie</option>
-                            <option value="klaar">Klaar</option>
-                        </select>
-                    </form> -->
-                    </div>
                 </div>
             </router-link>
+            <div class="card__status">
+                <p class="status__text">Status: <b>{{ donut.status }}</b></p>
+
+                <div class="status__options">
+                    <!-- <select name="status" id="status" v-on:click="updateStatus(donut._id)">
+                        <option value="Opgeslagen">Opgeslagen</option>
+                        <option value="In productie">In productie</option>
+                        <option value="Klaar">Klaar</option>
+                    </select>
+                    <button class="status__submit">Update</button> -->
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+/* .update__status {
+    display: none;
+} */
+
+.status__options button {
+    padding: 1em;
+    margin-right: 1em;
+}
+
+.status__text {
+    margin-top: 0;
+    margin-bottom: 2em;
+}
+
+
+
 .donut-card {
     color: black;
+    text-transform: capitalize;
 }
 
 a {
@@ -206,8 +246,11 @@ h1 {
     text-align: center;
 }
 
-.card img {
-    width: 200px;
+.card__image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: 100% 20%;
 }
 
 .card__highlight {
